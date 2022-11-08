@@ -13,7 +13,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Social Media Page | Home</title>
+    <title>Social Media Page | Profile name</title>
   </head>
   <body>
     <!-- Navigation start -->
@@ -73,103 +73,89 @@
       </div>
     </nav>
     <!-- Navigation end -->
-
-    <!-- Section start -->
-    <section class="mb-3 mt-3">
-      <!-- Feed & card container start-->
-      <div class="container d-flex align-items-center flex-column">
-        <!-- Feed heading start -->
-        <div class="mb-3">
-          <h2>feed</h2>
-        </div>
-        <!-- Feed heading end -->
-        <!-- New Post start -->
-        <div class="container mb-3 p-0">
-          <label for="exampleFormControlTextarea1" class="form-label"></label>
-          <textarea
-            placeholder="Share something.."
-            class="form-control bg-secondary bg-opacity-10"
-            id="exampleFormControlTextarea1"
-            rows="2"></textarea>
-        </div>
-        <div class="p-0 mb-5 container">
-          <button
-            class="btn shadow"
-            type="submit"
-            data-bs-target="exampleFormControlTextarea1">
-            Share
-          </button>
-        </div>
-        <!-- New Post end -->
-
-        <!-- Cards start -->
-        <div class="card mb-3 shadow">
-          <div class="card-header d-flex justify-content-between border-0">
-            <div class="d-flex">
-              <a href="#" class="text-decoration-none text-dark"
-                ><img
-                  src="/images/profileImages/profile01.jpg"
-                  alt="user avatar"
-                  class="post-avatar rounded-circle" />
-              </a>
-              <div class="d-flex flex-column ms-2 mt-1">
-                <h5 class="mb-0">John Denver Smithsonian</h5>
-                <p class="card-text">
-                  <small class="text-muted">Posted 3 mins ago</small>
-                </p>
-              </div>
-            </div>
-            <!-- Dropdown start -->
-            <div class="dropdown">
-              <a
-                class=""
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-three-dots"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hide post</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Dropdown end -->
-          <div class="card-body">
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <div class="d-flex">
-              <p class="bi bi-hand-thumbs-up me-4">&nbsp;Like</p>
-              <p class="bi bi-chat-dots">&nbsp;Comment</p>
-            </div>
-            <div class="input-group">
-              <label for="text"></label>
-              <input
-                style="border-radius: 25px 0 0 25px"
-                type="text"
-                class="form-control bg-secondary bg-opacity-10"
-                placeholder="Add your comment.." />
-              <button class="btn" style="border-radius: 0 25px 25px 0">
-                Post
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cards end -->
-
-        <!-- Load more start -->
-        <button class="btn rounded-pill ps-4 pe-4 shadow mt-4" type="load">
-          Load more ..
-        </button>
-        <!-- Load more end -->
+    <section class="container-fluid">
+      <div class="header-text mt-3 text-center">
+        <h2>wall</h2>
       </div>
-      <!-- Feed & card container end -->
+      <div class="row d-flex align-items-start mt-3">
+        <div class="col-4">
+          <div class="card">
+            <div class="d-flex justify-content-center">
+              <div
+                class="card-img-top rounded-circle card-avatar mt-3 mb-3"
+                style="width: 200px; height: 200px"></div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">John Denver Smithsonian</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card text-center">
+            <div class="card-header">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted">2 days ago</div>
+          </div>
+        </div>
+      </div>
     </section>
-    <!-- Section end -->
+
     <!-- Footer start -->
     <footer><div>2022 &copy;</div></footer>
     <!-- Footer end -->

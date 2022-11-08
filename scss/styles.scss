@@ -1,0 +1,36 @@
+/* ========================================================
+IMPORTS
+======================================================== */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import "_variables.scss";
+@import "_nav.scss";
+@import "_card.scss";
+@import "_button.scss";
+
+/* ========================================================
+GLOBAL
+======================================================== */
+// Keeps footer at bottom at all times
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-background;
+}
+
+// TODO may implement regular image
+
+.card-avatar {
+  background-image: url("/images/profileImages/profile01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-check-input:checked {
+  background-color: $color-button;
+}

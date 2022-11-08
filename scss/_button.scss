@@ -1,0 +1,15 @@
+/* ========================================================
+BUTTON
+======================================================== */
+
+.btn {
+  background-color: $color-button;
+  color: #fff;
+  border-style: none;
+
+  &:hover {
+    background-color: $color-button;
+    color: #fff;
+    opacity: 80%;
+  }
+}
