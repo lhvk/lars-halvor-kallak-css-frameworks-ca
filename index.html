@@ -52,9 +52,6 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="profile.html">Profile</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
             </ul>
@@ -74,102 +71,104 @@
     </nav>
     <!-- Navigation end -->
 
-    <!-- Section start -->
-    <section class="mb-3 mt-3">
-      <!-- Feed & card container start-->
-      <div class="container d-flex align-items-center flex-column">
-        <!-- Feed heading start -->
-        <div class="mb-3">
-          <h2>feed</h2>
-        </div>
-        <!-- Feed heading end -->
-        <!-- New Post start -->
-        <div class="container mb-3 p-0">
-          <label for="exampleFormControlTextarea1" class="form-label"></label>
-          <textarea
-            placeholder="Share something.."
-            class="form-control bg-secondary bg-opacity-10"
-            id="exampleFormControlTextarea1"
-            rows="2"></textarea>
-        </div>
-        <div class="p-0 mb-5 container">
-          <button
-            class="btn shadow"
-            type="submit"
-            data-bs-target="exampleFormControlTextarea1">
-            Share
-          </button>
-        </div>
-        <!-- New Post end -->
-
-        <!-- Cards start -->
-        <div class="card mb-3 shadow">
-          <div class="card-header d-flex justify-content-between border-0">
-            <div class="d-flex">
-              <a href="#" class="text-decoration-none text-dark"
-                ><img
-                  src="/images/profileImages/profile01.jpg"
-                  alt="user avatar"
-                  class="post-avatar rounded-circle" />
-              </a>
-              <div class="d-flex flex-column ms-2 mt-1">
-                <h5 class="mb-0">John Denver Smithsonian</h5>
-                <p class="card-text">
-                  <small class="text-muted">Posted 3 mins ago</small>
-                </p>
+    <!-- Feed & card container start-->
+    <div class="container mt-3">
+      <!-- Feed heading start -->
+      <div class="row justify-content-center">
+        <div class="col" style="max-width: 720px">
+          <div class="mb-3">
+            <h2>feed</h2>
+          </div>
+          <!-- Feed heading end -->
+          <!-- New Post start -->
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"></label>
+            <textarea
+              placeholder="Share something.."
+              class="form-control bg-secondary bg-opacity-10"
+              id="exampleFormControlTextarea1"
+              rows="2"></textarea>
+          </div>
+          <div class="mb-5">
+            <button
+              class="btn shadow"
+              type="submit"
+              data-bs-target="exampleFormControlTextarea1">
+              Share
+            </button>
+          </div>
+          <!-- New Post end -->
+          <!-- Cards start -->
+          <div class="card mb-3 shadow">
+            <div
+              class="card-header bg-white d-flex justify-content-between border-0">
+              <div class="d-flex">
+                <a href="profile.html" class="text-decoration-none text-dark"
+                  ><img
+                    src="/images/profileImages/profile01.jpg"
+                    alt="user avatar"
+                    class="post-avatar rounded-circle" />
+                </a>
+                <div class="d-flex flex-column ms-2 mt-1">
+                  <h5 class="mb-0">John Denver Smithsonian</h5>
+                  <p class="card-text">
+                    <small class="text-muted">Posted 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+              <!-- Dropdown start -->
+              <div class="dropdown">
+                <a
+                  class=""
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bi bi-three-dots"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Hide post</a></li>
+                </ul>
               </div>
             </div>
-            <!-- Dropdown start -->
-            <div class="dropdown">
-              <a
-                class=""
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-three-dots"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hide post</a></li>
-              </ul>
+            <!-- Dropdown end -->
+            <div class="card-body">
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <div class="d-flex">
+                <p class="bi bi-hand-thumbs-up me-4">&nbsp;Like</p>
+                <p class="bi bi-chat-dots">&nbsp;Comment</p>
+              </div>
+              <div class="input-group">
+                <label for="text"></label>
+                <input
+                  style="border-radius: 25px 0 0 25px"
+                  type="text"
+                  class="form-control bg-secondary bg-opacity-10"
+                  placeholder="Add your comment.." />
+                <button class="btn" style="border-radius: 0 25px 25px 0">
+                  Post
+                </button>
+              </div>
             </div>
           </div>
-          <!-- Dropdown end -->
-          <div class="card-body">
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <div class="d-flex">
-              <p class="bi bi-hand-thumbs-up me-4">&nbsp;Like</p>
-              <p class="bi bi-chat-dots">&nbsp;Comment</p>
-            </div>
-            <div class="input-group">
-              <label for="text"></label>
-              <input
-                style="border-radius: 25px 0 0 25px"
-                type="text"
-                class="form-control bg-secondary bg-opacity-10"
-                placeholder="Add your comment.." />
-              <button class="btn" style="border-radius: 0 25px 25px 0">
-                Post
-              </button>
-            </div>
+          <!-- Cards end -->
+          <!-- Load more start -->
+          <div class="d-flex justify-content-center">
+            <button
+              class="btn rounded-pill ps-4 pe-4 shadow mt-4 mb-4"
+              type="load">
+              Load more ..
+            </button>
           </div>
+          <!-- Load more end -->
         </div>
-
-        <!-- Cards end -->
-
-        <!-- Load more start -->
-        <button class="btn rounded-pill ps-4 pe-4 shadow mt-4" type="load">
-          Load more ..
-        </button>
-        <!-- Load more end -->
       </div>
-      <!-- Feed & card container end -->
-    </section>
-    <!-- Section end -->
+    </div>
+    <!-- Feed & card container end -->
     <!-- Footer start -->
     <footer><div>2022 &copy;</div></footer>
     <!-- Footer end -->

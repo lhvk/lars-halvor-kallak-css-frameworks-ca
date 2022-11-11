@@ -52,9 +52,6 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="profile.html">Profile</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
               </li>
             </ul>
@@ -73,43 +70,42 @@
       </div>
     </nav>
     <!-- Navigation end -->
-    <section
-      class="container d-flex justify-content-center align-items-center flex-column">
-      <form class="d-grid gap-3 container-sm col-md-8" action="/profile.html">
-        <h1 class="mb-0">Log in</h1>
-        <p class="leading mb-0">Email or Username</p>
-        <div class="">
-          <label for="staticEmail2" class="visually-hidden">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="staticEmail2"
-            placeholder="email@example.com"
-            required
-            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
-        </div>
-        <div class="">
-          <label for="inputPassword2" class="visually-hidden">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword2"
-            placeholder="Password"
-            required />
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="defaultCheck1" />
-          <label class="form-check-label" for="defaultCheck1">
-            Remember me
-          </label>
-        </div>
-        <div class="">
-          <button type="submit" class="btn btn-primary mb-3 w-100">
-            Login
-          </button>
-        </div>
-      </form>
-    </section>
+
+    <form class="d-grid gap-3 m-auto" action="/profile.html">
+      <h1 class="mb-0">Log in</h1>
+      <p class="leading mb-0">Email or Username</p>
+      <div class="">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="staticEmail2"
+          placeholder="email@example.com"
+          required
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+      </div>
+      <div class="">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword2"
+          placeholder="Password"
+          required />
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="defaultCheck1" />
+        <label class="form-check-label" for="defaultCheck1">
+          Remember me
+        </label>
+      </div>
+      <div class="">
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </div>
+      <div class="text-center">
+        Not registered? <a href="">Create an account</a>
+      </div>
+    </form>
     <!-- Footer start -->
     <footer><div>2022 &copy;</div></footer>
     <!-- Footer end -->

@@ -23,14 +23,6 @@ body {
   background-color: $color-background;
 }
 
-// TODO may implement regular image
-
-.card-avatar {
-  background-image: url("/images/profileImages/profile01.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .form-check-input:checked {
   background-color: $color-button;
 }
