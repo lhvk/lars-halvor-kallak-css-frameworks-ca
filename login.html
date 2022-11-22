@@ -67,25 +67,26 @@
     </nav>
     <!-- Navigation end -->
 
-    <form class="d-grid gap-3 m-auto" action="/profile.html">
+    <form class="d-grid gap-3 m-auto" action="#">
       <h1 class="mb-0">Log in</h1>
       <p class="leading mb-0">Enter your email and password</p>
       <div class="">
         <label for="staticEmail2" class="visually-hidden">Email</label>
         <input
+          value="LarKal69841@stud.noroff.no"
           type="email"
           class="form-control"
-          id="staticEmail2"
+          id="email"
           placeholder="email@example.com"
-          required
-          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+          required />
       </div>
       <div class="">
         <label for="inputPassword2" class="visually-hidden">Password</label>
         <input
+          value="abc12345"
           type="password"
           class="form-control"
-          id="inputPassword2"
+          id="password"
           placeholder="Password"
           required />
       </div>
@@ -96,7 +97,9 @@
         </label>
       </div>
       <div class="">
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button id="login-button" type="submit" class="btn btn-primary w-100">
+          Login
+        </button>
       </div>
       <div class="text-center">
         Not registered? <a href="register.html">Create an account</a>
@@ -107,8 +110,13 @@
     <!-- Footer end -->
     <!-- Bootstrap JS -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"></script>
+    <script src="/js/login.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@ const errorMessage = document.querySelector('.error-message');
 const registerBtn = document.querySelector('#register-btn');
 
 async function registerUser(url, userData) {
+  console.log('user data', userData);
   try {
     const postData = {
       method: 'POST',
@@ -14,16 +15,16 @@ async function registerUser(url, userData) {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, postData);
-    console.log(response);
+
+    console.log('post data ', postData);
+    console.log('response ', response);
     const json = await response.json();
 
-    console.log(json.errors[0].message);
-    errorMessage.innerHTML = `<span class="text-danger">Unable to register: ${json.errors[0].message}</span>`;
+    console.log('json errors ', json.errors[0].message);
 
-    console.log(json);
+    console.log('json ', json);
   } catch (error) {
-    console.log(error);
-    errorMessage.innerHTML = `<span class="text-danger">Unable to register: ${error}</span>`;
+    console.log('error', error);
   }
 }
 const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
@@ -34,9 +35,7 @@ const userToRegister = {
   password: document.querySelector('#password').value,
 };
 
-registerBtn.addEventListener('click', function (e) {
-  console.log(registerUser(registerUrl, userToRegister));
-});
+registerBtn.onclick = registerUser(registerUrl, userToRegister);
 
 //   name: john_the_blacksmith
 //   email: blacksmith_john@noroff.no
