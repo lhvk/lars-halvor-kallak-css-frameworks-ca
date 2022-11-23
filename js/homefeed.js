@@ -1,29 +1,27 @@
-"use strict";
+'use strict';
 
-const homeFeed = document.querySelector("#home-feed");
-const API_BASE_URL = "https://nf-api.onrender.com";
-const loadMore = document.querySelector("#load-more");
+const homeFeed = document.querySelector('#home-feed');
+const API_BASE_URL = 'https://nf-api.onrender.com';
+const loadMore = document.querySelector('#load-more');
 
 async function getWithToken(url) {
   try {
-    // console.log(url);
-    const token = localStorage.getItem("token");
-    // console.log(token);
+    //
+    const token = localStorage.getItem('token');
     const fetchOptions = {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(url, fetchOptions);
-    // console.log("response token", response);
+    console.log('response token', response);
     const json = await response.json();
-    console.log("json token", json);
+    console.log('json token', json);
+
     // Loop through the data and create html //
     json.forEach((post) => {
-      //   console.log(post);
-
       const author = post.author.name;
       const avatar = post.author.avatar;
       const title = post.title;
@@ -31,10 +29,9 @@ async function getWithToken(url) {
       const media = post.media;
       const text = post.body;
       const likes = post._count.reactions;
-      const comments = post._count.comments;
-
-      // remove loader //
-      // document.querySelector(".loader").style.display = "none";
+      const commentsCount = post._count.comments;
+      const comments = post.comments;
+      const commentOwner = post.comments.owner;
 
       // html //
       homeFeed.innerHTML += `<div class="card mb-3 shadow">
@@ -82,8 +79,31 @@ async function getWithToken(url) {
             </p>
             <div class="d-flex">
               <p class="bi bi-hand-thumbs-up me-4">&nbsp;${likes} Likes</p>
-              <p class="bi bi-chat-dots">&nbsp;${comments} Comments</p>
+              <p class="bi bi-chat-dots">&nbsp;${commentsCount} Comments</p>
             </div>
+            <div class="card-footer bg-white">
+            
+            <!-- Comment start -->
+            <div class="input-group mb-3 mt-2">
+              <a href="profile.html?id=${commentOwner}">
+                <img
+                  src="${avatar}"
+                  alt="user avatar"
+                  class="post-avatar-sm rounded-circle me-2"
+                  onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"/>
+              </a>
+              <div class="form-floating">
+                <input
+                  class="form-control rounded bg-secondary bg-opacity-10"
+                  type="text"
+                  value="${'comments'}"
+                  aria-label="readonly input example"
+                  readonly />
+                <label class="opacity-100 fw-semibold">${'commentOwner'}</label>
+              </div>
+            </div>
+            <!-- Comment end -->
+
             <div class="input-group">
               <label for="text"></label>
               <input
@@ -96,6 +116,8 @@ async function getWithToken(url) {
                 Post
               </button>
             </div>
+            </div>
+  
           </div>
         </div>`;
     });
