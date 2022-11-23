@@ -35,14 +35,14 @@ async function getWithToken(url) {
 
       // remove loader //
       // document.querySelector(".loader").style.display = "none";
-      //   /images/profileImages/profile01.jpg
+
       // html //
       homeFeed.innerHTML += `<div class="card mb-3 shadow">
           <div
             class="card-header bg-white d-flex justify-content-between border-bottom border-0"
           >
             <div class="d-flex">
-              <a href="profile.html" class="text-decoration-none text-dark"
+              <a href="profile.html?id=${author}" class="text-decoration-none text-dark"
                 ><img
                   src="${avatar}" 
                   alt="user avatar"
