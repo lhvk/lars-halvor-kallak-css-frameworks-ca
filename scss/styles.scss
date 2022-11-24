@@ -4,10 +4,10 @@ IMPORTS
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import "_variables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "_nav.scss";
 @import "_card.scss";
 @import "_button.scss";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 /* ========================================================
 GLOBAL
@@ -21,11 +21,11 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  // background-color: $color-background;
+  background-color: #fff;
 }
 
 .form-check-input:checked {
-  background-color: $color-button;
+  background-color: $pink;
 }
 
 .fs-2 {

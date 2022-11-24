@@ -4,16 +4,16 @@ NAVIGATION
 
 .navbar,
 .offcanvas {
-  background-color: $color-nav-footer;
+  background-color: $blue;
   & .navbar-brand,
   a,
   .offcanvas-title {
-    color: $color-background;
+    color: #fff;
   }
 }
 
 .nav-link:hover {
-  color: $color-button;
+  color: $pink;
 }
 
 /* ========================================================
@@ -22,8 +22,8 @@ FOOTER
 
 footer {
   margin-top: auto;
-  background-color: $color-nav-footer;
-  color: $color-background;
+  background-color: $blue;
+  color: #fff;
   min-height: 5rem;
   display: flex;
   flex-direction: column;

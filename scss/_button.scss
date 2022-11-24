@@ -2,14 +2,14 @@
 BUTTON
 ======================================================== */
 
-// .btn {
-//   background-color: $color-button;
-//   color: $color-background;
-//   border-style: none;
+.btn {
+  background-color: $pink;
+  color: #fff;
+  border-style: none;
 
-//   &:hover {
-//     background-color: $color-button;
-//     color: $color-background;
-//     opacity: 80%;
-//   }
-// }
+  &:hover {
+    background-color: $pink;
+    color: #fff;
+    opacity: 80%;
+  }
+}
