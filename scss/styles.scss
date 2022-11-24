@@ -7,6 +7,7 @@ IMPORTS
 @import "_nav.scss";
 @import "_card.scss";
 @import "_button.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 /* ========================================================
 GLOBAL
@@ -20,7 +21,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: $color-background;
+  // background-color: $color-background;
 }
 
 .form-check-input:checked {

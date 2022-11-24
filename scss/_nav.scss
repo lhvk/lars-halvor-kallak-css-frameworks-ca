@@ -8,7 +8,7 @@ NAVIGATION
   & .navbar-brand,
   a,
   .offcanvas-title {
-    color: #fff;
+    color: $color-background;
   }
 }
 
@@ -23,10 +23,10 @@ FOOTER
 footer {
   margin-top: auto;
   background-color: $color-nav-footer;
-  color: #fff;
+  color: $color-background;
   min-height: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
