@@ -1,0 +1,32 @@
+/* ========================================================
+NAVIGATION
+======================================================== */
+
+.navbar,
+.offcanvas {
+  background-color: $color-nav-footer;
+  & .navbar-brand,
+  a,
+  .offcanvas-title {
+    color: $color-background;
+  }
+}
+
+.nav-link:hover {
+  color: $color-button;
+}
+
+/* ========================================================
+FOOTER
+======================================================== */
+
+footer {
+  margin-top: auto;
+  background-color: $color-nav-footer;
+  color: $color-background;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}

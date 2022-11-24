@@ -1,0 +1,33 @@
+/* ========================================================
+IMPORTS
+======================================================== */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import "_variables.scss";
+@import "_nav.scss";
+@import "_card.scss";
+@import "_button.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* ========================================================
+GLOBAL
+======================================================== */
+// Keeps footer at bottom at all times
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  // background-color: $color-background;
+}
+
+.form-check-input:checked {
+  background-color: $color-button;
+}
+
+.fs-2 {
+  font-size: 2rem;
+}
