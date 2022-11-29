@@ -39,17 +39,6 @@ async function getWithToken(url) {
       const text = post.body;
       const likes = post._count.reactions;
       const commentsCount = post._count.comments;
-      const comments = post.comments;
-      const commentAuthor = comments.map((x) => {
-        return x.author.name;
-      });
-      const commentBody = comments.map((x) => {
-        return x.body;
-      });
-      const commentAvatar = comments.map((x) => {
-        return x.author.avatar;
-      });
-      console.log(commentBody, commentAuthor, commentAvatar);
 
       // html //
       homeFeed.innerHTML += `<div class="card mb-3 shadow">

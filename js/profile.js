@@ -9,13 +9,11 @@ const API_BASE_URL = 'https://nf-api.onrender.com',
   params = new URLSearchParams(queryString),
   userId = params.get('id');
 
-// Fetch unique author ID //
+// Fetch unique user ID //
 
 export async function getUser(url) {
   try {
-    // console.log(url);
     const token = localStorage.getItem('token');
-    // console.log(token);
     const fetchOptions = {
       method: 'GET',
       headers: {
@@ -29,7 +27,6 @@ export async function getUser(url) {
     // Change document title //
     document.title = `Social Media Page | ${userData.name}`;
 
-    // Call the html function //
     // User Profile
     profileCard(userData);
     // List of users the profile is following
@@ -46,7 +43,6 @@ export async function getUser(url) {
 }
 
 const userUrl = `${API_BASE_URL}/api/v1/social/profiles/${userId}?_following=true&_followers=true&_posts=true`;
-const getUserPosts = `${API_BASE_URL}/api/v1/social/profiles/${userId}/posts`;
 
 getUser(userUrl);
 
@@ -127,6 +123,7 @@ const profileCard = function (userData) {
   `;
 };
 
+// List of the users following
 function followingUser(userData) {
   const followingContainer = document.querySelector('.following');
 
@@ -151,6 +148,7 @@ function followingUser(userData) {
   });
 }
 
+// List of the users followers
 function followersUser(userData) {
   const followersContainer = document.querySelector('.followers');
 
@@ -175,11 +173,13 @@ function followersUser(userData) {
   });
 }
 
+// The users posts
 function userPosts(userData) {
   const profilePosts = document.querySelector('#profile-posts');
 
   userData.posts.forEach((post) => {
     console.log(post);
+
     profilePosts.innerHTML += `<div class="card mb-3 shadow">
   <div
     class="card-header bg-white d-flex justify-content-between border-bottom border-0"
@@ -189,7 +189,7 @@ function userPosts(userData) {
         post.owner
       }" class="text-decoration-none text-dark"
         ><img
-          src="${post.avatar}" 
+          src="${'avatar'}" 
           alt="user avatar"
           class="post-avatar rounded-circle"
           onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
@@ -198,7 +198,10 @@ function userPosts(userData) {
       <div class="d-flex flex-column ms-2 mt-1">
         <h5 class="card-title mb-0">${post.owner}</h5>
         <p class="card-text">
-          <small class="text-muted">Posted ${post.created}</small>
+          <small class="text-muted">Posted ${Date(post.created).substring(
+            0,
+            11
+          )}</small>
         </p>
       </div>
     </div>
