@@ -1,20 +1,24 @@
-@import "_variables.scss";
+@import '_variables.scss';
 
 /* ========================================================
 NAVIGATION
 ======================================================== */
 
-.navbar,
-.offcanvas {
+header,
+.dropdown-menu {
   background-color: $blue;
   & .navbar-brand,
-  a,
-  .offcanvas-title {
+  .navbar-brand:focus,
+  a {
     color: #fff;
+  }
+  & :hover {
+    color: $pink;
   }
 }
 
-.nav-link:hover {
+.dropdown-item:hover {
+  background-color: inherit;
   color: $pink;
 }
 

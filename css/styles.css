@@ -10781,20 +10781,25 @@ VARIABLES
 ======================================================== */ /* ========================================================
 NAVIGATION
 ======================================================== */
-.navbar,
-.offcanvas {
+header,
+.dropdown-menu {
   background-color: #1e3163;
 }
-.navbar .navbar-brand,
-.navbar a,
-.navbar .offcanvas-title,
-.offcanvas .navbar-brand,
-.offcanvas a,
-.offcanvas .offcanvas-title {
+header .navbar-brand,
+header .navbar-brand:focus,
+header a,
+.dropdown-menu .navbar-brand,
+.dropdown-menu .navbar-brand:focus,
+.dropdown-menu a {
   color: #fff;
 }
+header :hover,
+.dropdown-menu :hover {
+  color: #f037a5;
+}
 
-.nav-link:hover {
+.dropdown-item:hover {
+  background-color: inherit;
   color: #f037a5;
 }
 
@@ -10839,6 +10844,12 @@ CARDS
   object-position: top;
 }
 
+.modal-avatar {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 /* ========================================================
 VARIABLES
 ======================================================== */
@@ -10870,12 +10881,21 @@ body {
   background-color: #fff;
 }
 
-.form-check-input:checked {
+.form-check-input:checked,
+.bg-pink {
   background-color: #f037a5;
+}
+
+.bg-blue {
+  background-color: #1e3163;
 }
 
 .fs-2 {
   font-size: 2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
