@@ -5,435 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Social Media Page | Profile name</title>
+    <title>Social Media Page | Profile</title>
   </head>
   <body>
     <!-- Navigation start -->
-    <nav class="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Social Site</a>
-        <span
-          class="navbar-toggler border-0 p-0"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-        >
-          <i class="bi bi-list text-light fs-2"></i>
-        </span>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Social Site
-            </h5>
-            <span
-              class="bi bi-x navbar-toggler border-0 p-0 text-light fs-2"
-              type="button"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></span>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="profile.html"
-                  >Profile</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-              </li>
+    <header class="py-3 mb-3 border-bottom">
+      <div
+        class="container-fluid d-grid gap-3 align-items-center"
+        style="grid-template-columns: 1fr 2fr">
+        <a class="navbar-brand" href="index.html">Social Site</a>
+
+        <div class="d-flex align-items-center">
+          <form class="w-100 me-3">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search" />
+          </form>
+
+          <div class="flex-shrink-0 dropdown">
+            <a
+              href="#"
+              class="d-block text-decoration-none dropdown-toggle"
+              id="dropdownUser2"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle" />
+            </a>
+            <ul
+              class="dropdown-menu text-small shadow"
+              aria-labelledby="dropdownUser2">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider bg-white" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
             </ul>
-            <form class="d-flex mt-3" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
     <!-- Navigation end -->
 
     <!-- Main page container start -->
     <div class="container">
+      <button id="return" class="btn m-2">return</button>
       <!-- Profile start -->
       <div class="row justify-content-center">
         <div class="col col-xxl-7 col-xl-8 col-lg-9">
-          <div class="card border-0 align-items-center d-flex flex-column">
-            <div
-              class="card-header border-0 bg-white d-flex justify-content-center"
-            >
-              <img
-                src="images/profileImages/profile01.jpg"
-                alt=""
-                class="card-img-top profile-avatar mt-3 mb-3 rounded-circle"
-              />
-            </div>
-            <div class="card-body" style="max-width: 720px">
-              <h5 class="mb-3 text-center">John Denver Smithsonian</h5>
-              <div class="card-footer border-0 bg-white">
-                <small class="card-text"
-                  ><strong>From: </strong>Paradise City</small
-                >
-                <span class="border-end border-2"></span>
-                <small class="card-text"><strong> Age: </strong>40</small>
-                <span class="border-end border-2"></span>
-                <small
-                  style="cursor: pointer"
-                  class="card-text"
-                  data-bs-toggle="modal"
-                  data-bs-target="#followersModal"
-                  ><strong>Followers:</strong> 40</small
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Followers modal start -->
-
+          <div id="user-card"></div>
+          <!-- Avatar image modal -->
           <div
-            class="modal fade"
-            id="followersModal"
+            class="modal fade modal-lg"
+            id="userAvatarModal"
             tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
+            aria-labelledby="avatar modal"
+            aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h2 class="modal-title fs-5" id="exampleModalLabel">
-                    Followers
-                  </h2>
                   <button
                     type="button"
                     class="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Followers modal start -->
+          <div
+            class="modal fade"
+            id="followersModal"
+            tabindex="-1"
+            aria-labelledby="followers"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5">Followers</h2>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="container text-center">
-                    <div class="row">
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile02.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>JayJay Okocha</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile03.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Nora Drinkwater</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile04.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Byron De La Beckwith</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile05.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Peggy Eighteen</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile06.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Leighton Banes</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile07.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Jonas Alaska</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile08.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Celestine Babayaro</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile09.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Ariel Batistuta</h6>
-                        </a>
-                      </div>
-                      <div class="col">
-                        <a href="" class="text-dark text-decoration-none">
-                          <img
-                            src="images/profileImages/profile10.jpg"
-                            class="card-img-top profile-avatar rounded-circle mt-2 mb-2"
-                            alt="..."
-                          />
-                          <h6>Mary Main</h6>
-                        </a>
-                      </div>
-                    </div>
+                    <div class="row followers"></div>
                   </div>
                 </div>
-                <!-- <div class="modal-footer"></div> -->
               </div>
             </div>
           </div>
-          <!-- Follower modal end -->
+          <!-- Followers modal end -->
+          <!-- Following modal start -->
+          <div
+            class="modal fade"
+            id="followingModal"
+            tabindex="-1"
+            aria-labelledby="following"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5">Following</h2>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container text-center">
+                    <div class="row following"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Following modal end -->
 
           <!-- Profile end -->
-
-          <!-- New Post start -->
-          <div class="container mb-3 p-0">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea
-              placeholder="Write on wall.."
-              class="form-control bg-secondary bg-opacity-10"
-              id="exampleFormControlTextarea1"
-              rows="2"
-            ></textarea>
-          </div>
-          <div class="p-0 mb-5 container">
-            <button
-              class="btn shadow"
-              type="submit"
-              data-bs-target="exampleFormControlTextarea1"
-            >
-              Post to wall
-            </button>
-          </div>
-          <!-- New Post end -->
-          <!-- Wall posts start -->
-          <div class="card mb-3 shadow">
-            <div
-              class="card-header bg-white d-flex justify-content-between border-0"
-            >
-              <div class="d-flex">
-                <a href="#" class="text-decoration-none text-dark"
-                  ><img
-                    src="/images/profileImages/profile02.jpg"
-                    alt="user avatar"
-                    class="post-avatar rounded-circle"
-                  />
-                </a>
-                <div class="d-flex flex-column ms-2 mt-1">
-                  <h5 class="mb-0">JayJay Okocha</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Posted 3 mins ago</small>
-                  </p>
-                </div>
-              </div>
-              <!-- Dropdown start -->
-              <div class="dropdown">
-                <a
-                  class=""
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Hide post</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Dropdown end -->
-            <div class="card-body">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex">
-                <p class="bi bi-hand-thumbs-up me-4">&nbsp;Like</p>
-                <p class="bi bi-chat-dots">&nbsp;Comment</p>
-              </div>
-              <div class="input-group">
-                <label for="text"></label>
-                <input
-                  style="border-radius: 25px 0 0 25px"
-                  type="text"
-                  class="form-control bg-secondary bg-opacity-10"
-                  placeholder="Add your comment.."
-                />
-                <button class="btn" style="border-radius: 0 25px 25px 0">
-                  Post
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mb-3 shadow">
-            <div
-              class="card-header bg-white d-flex justify-content-between border-0"
-            >
-              <div class="d-flex">
-                <a href="#" class="text-decoration-none text-dark"
-                  ><img
-                    src="/images/profileImages/profile03.jpg"
-                    alt="user avatar"
-                    class="post-avatar rounded-circle"
-                  />
-                </a>
-                <div class="d-flex flex-column ms-2 mt-1">
-                  <h5 class="mb-0">Nora Drinkwater</h5>
-                  <p class="card-text">
-                    <small class="text-muted">Posted 2 days ago</small>
-                  </p>
-                </div>
-              </div>
-              <!-- Dropdown start -->
-              <div class="dropdown">
-                <a
-                  class=""
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-three-dots"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Hide post</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Dropdown end -->
-            <div class="card-body">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex">
-                <p class="bi bi-hand-thumbs-up-fill me-3">
-                  <strong>&nbsp;Like</strong>
-                </p>
-                <p class="bi bi-chat-dots">&nbsp;Comment</p>
-              </div>
-            </div>
-            <div class="card-footer bg-white">
-              <!-- Comment 1 start -->
-              <div class="input-group mb-3 mt-2">
-                <a href="#">
-                  <img
-                    src="/images/profileImages/profile02.jpg"
-                    alt="user avatar"
-                    class="post-avatar-sm rounded-circle me-2"
-                  />
-                </a>
-                <div class="form-floating">
-                  <input
-                    class="form-control rounded bg-secondary bg-opacity-10"
-                    type="text"
-                    value="This text is long and could be longer if I just had the stamina to write more.."
-                    aria-label="readonly input example"
-                    readonly
-                  />
-                  <label class="opacity-100 fw-semibold">JayJay Okocha</label>
-                </div>
-              </div>
-              <!-- Comment 1 end -->
-
-              <!-- Comment 2 start -->
-              <div class="input-group mb-3 mt-2">
-                <a href="#">
-                  <img
-                    src="/images/profileImages/profile02.jpg"
-                    alt="user avatar"
-                    class="post-avatar-sm rounded-circle me-2"
-                  />
-                </a>
-                <div class="form-floating">
-                  <input
-                    class="form-control rounded bg-secondary bg-opacity-10"
-                    type="text"
-                    value="ROFL MAO, Nora 😂"
-                    aria-label="readonly input example"
-                    readonly
-                  />
-                  <label class="opacity-100 fw-semibold">JayJay Okocha</label>
-                </div>
-              </div>
-              <!-- Comment 2 end -->
-
-              <div class="input-group">
-                <label for="text"></label>
-                <input
-                  style="border-radius: 25px 0 0 25px"
-                  type="text"
-                  class="form-control bg-secondary bg-opacity-10"
-                  placeholder="Add your comment.."
-                />
-                <button class="btn" style="border-radius: 0 25px 25px 0">
-                  Post
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Wall posts end -->
-
-          <!-- Load more start -->
-          <div class="d-flex justify-content-center">
-            <button
-              class="btn rounded-pill ps-4 pe-4 shadow mt-4 mb-4"
-              type="load"
-            >
-              Load more ..
-            </button>
-          </div>
-          <!-- Load more end -->
+          <div id="profile-posts"></div>
         </div>
       </div>
     </div>
@@ -445,7 +144,9 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <!-- <script type="module" src="/js/getUser.js"></script>
+    <script type="module" src="/js/script.js"></script> -->
+    <script type="module" src="/js/profile.js"></script>
   </body>
 </html>

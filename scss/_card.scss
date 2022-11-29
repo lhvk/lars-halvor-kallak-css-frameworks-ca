@@ -1,4 +1,4 @@
-@import "_variables.scss";
+@import '_variables.scss';
 /* ========================================================
 CARDS
 ======================================================== */
@@ -19,6 +19,12 @@ CARDS
 .post-avatar-sm {
   width: 30px;
   height: 30px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.modal-avatar {
+  width: 100%;
   object-fit: cover;
   object-position: top;
 }
