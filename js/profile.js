@@ -4,16 +4,14 @@ document.querySelector('#return').addEventListener('click', () => {
   history.back();
 });
 
-const API_BASE_URL = 'https://nf-api.onrender.com';
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const userId = params.get('id');
-
-console.log(userId);
+const API_BASE_URL = 'https://nf-api.onrender.com',
+  queryString = document.location.search,
+  params = new URLSearchParams(queryString),
+  userId = params.get('id');
 
 // Fetch unique author ID //
 
-async function getUser(url) {
+export async function getUser(url) {
   try {
     // console.log(url);
     const token = localStorage.getItem('token');
@@ -27,9 +25,7 @@ async function getUser(url) {
     };
     const response = await fetch(url, fetchOptions);
     const userData = await response.json();
-
     console.log(userData);
-
     // Change document title //
     document.title = `Social Media Page | ${userData.name}`;
 
@@ -40,8 +36,8 @@ async function getUser(url) {
     followingUser(userData);
     // List of users who follow the profile
     followersUser(userData);
-    // Modal for larger avatar image
-    avatarUser(userData);
+    // List of the users post
+    userPosts(userData);
 
     // Catch error //
   } catch (error) {
@@ -49,13 +45,14 @@ async function getUser(url) {
   }
 }
 
-const userUrl = `${API_BASE_URL}/api/v1/social/profiles/${userId}?_following=true&_followers=true`;
+const userUrl = `${API_BASE_URL}/api/v1/social/profiles/${userId}?_following=true&_followers=true&_posts=true`;
+const getUserPosts = `${API_BASE_URL}/api/v1/social/profiles/${userId}/posts`;
 
 getUser(userUrl);
 
 const userContainer = document.querySelector('#user-card');
 
-function profileCard(userData) {
+const profileCard = function (userData) {
   const author = userData.name;
   const avatar = userData.avatar;
   const banner = userData.banner;
@@ -116,25 +113,19 @@ function profileCard(userData) {
       </div>
     </div>
   </div>`;
-}
 
-function avatarUser(userData) {
+  // Prompts a modal when avatar is clicked on
   const userAvatarContainer = document.querySelector('#modal-body');
-
-  userData.following.forEach((avatarModal) => {
-    // Avatar
-    console.log(avatarModal);
-    userAvatarContainer.innerHTML = `
-    <img
-      src="${avatarModal.avatar}"
-      class=""
-      alt="..."
-      onerror="this.onerror=null; 
-      this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
-    />
-    `;
-  });
-}
+  userAvatarContainer.innerHTML = `
+  <img
+    src="${avatar}"
+    class="modal-avatar"
+    alt="..."
+    onerror="this.onerror=null; 
+    this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
+  />
+  `;
+};
 
 function followingUser(userData) {
   const followingContainer = document.querySelector('.following');
@@ -181,5 +172,71 @@ function followersUser(userData) {
     </a>
   </div>
     `;
+  });
+}
+
+function userPosts(userData) {
+  const profilePosts = document.querySelector('#profile-posts');
+
+  userData.posts.forEach((post) => {
+    console.log(post);
+    profilePosts.innerHTML += `<div class="card mb-3 shadow">
+  <div
+    class="card-header bg-white d-flex justify-content-between border-bottom border-0"
+  >
+    <div class="d-flex">
+      <a href="profile.html?id=${
+        post.owner
+      }" class="text-decoration-none text-dark"
+        ><img
+          src="${post.avatar}" 
+          alt="user avatar"
+          class="post-avatar rounded-circle"
+          onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
+        />
+      </a>
+      <div class="d-flex flex-column ms-2 mt-1">
+        <h5 class="card-title mb-0">${post.owner}</h5>
+        <p class="card-text">
+          <small class="text-muted">Posted ${post.created}</small>
+        </p>
+      </div>
+    </div>
+    <!-- Dropdown start -->
+    <div class="dropdown">
+      <a
+        class=""
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="bi bi-three-dots"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/post.html/${
+          post.id
+        }">View Post</a></li>
+        <li><a class="dropdown-item" href="#">Edit post</a></li>
+        <li><a class="dropdown-item delete-button" href="/index.html">Delete post</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Dropdown end -->     
+  <img class="card-img-top rounded-0" src="${
+    post.media
+  }" alt="Card image" onerror="this.style.display='none'"/>
+  <div class="card-body">
+  <h6 class="card-subtitle mb-2">${post.title}</h6>
+    <p class="card-text">
+      ${post.body}
+    </p>
+    <hr>
+    <div class="d-flex">
+      <p class="bi bi-hand-thumbs-up me-4">&nbsp;${'likes'} Reactions</p>
+      <p class="bi bi-chat-dots">&nbsp;${'commentsCount'} Comments</p>
+    </div>
+  </div>
+</div>`;
   });
 }

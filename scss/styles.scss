@@ -24,10 +24,19 @@ body {
   background-color: #fff;
 }
 
-.form-check-input:checked {
+.form-check-input:checked,
+.bg-pink {
   background-color: $pink;
+}
+
+.bg-blue {
+  background-color: $blue;
 }
 
 .fs-2 {
   font-size: 2rem;
+}
+
+.hidden {
+  display: none;
 }

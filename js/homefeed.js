@@ -1,8 +1,14 @@
 'use strict';
 
 const homeFeed = document.querySelector('#home-feed');
-const API_BASE_URL = 'https://nf-api.onrender.com';
 const loadMore = document.querySelector('#load-more');
+//
+// let numberOfPosts = 20;
+// let offset = 0;
+//
+const API_BASE_URL = 'https://nf-api.onrender.com';
+const postsUrl = `${API_BASE_URL}/api/v1/social/posts?&_author=true&_comments=true&_reactions=true&limit=20
+`;
 
 async function getWithToken(url) {
   try {
@@ -16,12 +22,15 @@ async function getWithToken(url) {
       },
     };
     const response = await fetch(url, fetchOptions);
-    console.log('response token', response);
+    console.log(response);
     const json = await response.json();
-    console.log('json token', json);
 
-    // Loop through the data and create html //
-    json.forEach((post) => {
+    console.log(json);
+
+    for (let i = 0; i < json.length; i++) {
+      const post = json[i];
+
+      const postId = post.id;
       const author = post.author.name;
       const avatar = post.author.avatar;
       const title = post.title;
@@ -31,7 +40,16 @@ async function getWithToken(url) {
       const likes = post._count.reactions;
       const commentsCount = post._count.comments;
       const comments = post.comments;
-      const commentOwner = post.comments.owner;
+      const commentAuthor = comments.map((x) => {
+        return x.author.name;
+      });
+      const commentBody = comments.map((x) => {
+        return x.body;
+      });
+      const commentAvatar = comments.map((x) => {
+        return x.author.avatar;
+      });
+      console.log(commentBody, commentAuthor, commentAvatar);
 
       // html //
       homeFeed.innerHTML += `<div class="card mb-3 shadow">
@@ -66,7 +84,9 @@ async function getWithToken(url) {
                 <i class="bi bi-three-dots"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Hide post</a></li>
+                <li><a class="dropdown-item" href="/post.html/${postId}">View Post</a></li>
+                <li><a class="dropdown-item" href="#">Edit post</a></li>
+                <li><a class="dropdown-item delete-button" href="/index.html">Delete post</a></li>
               </ul>
             </div>
           </div>
@@ -77,54 +97,29 @@ async function getWithToken(url) {
             <p class="card-text">
               ${text}
             </p>
+            <hr>
             <div class="d-flex">
-              <p class="bi bi-hand-thumbs-up me-4">&nbsp;${likes} Likes</p>
+              <p class="bi bi-hand-thumbs-up me-4">&nbsp;${likes} Reactions</p>
               <p class="bi bi-chat-dots">&nbsp;${commentsCount} Comments</p>
             </div>
-            <div class="card-footer bg-white">
-            
-            <!-- Comment start -->
-            <div class="input-group mb-3 mt-2">
-              <a href="profile.html?id=${commentOwner}">
-                <img
-                  src="${avatar}"
-                  alt="user avatar"
-                  class="post-avatar-sm rounded-circle me-2"
-                  onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"/>
-              </a>
-              <div class="form-floating">
-                <input
-                  class="form-control rounded bg-secondary bg-opacity-10"
-                  type="text"
-                  value="${'comments'}"
-                  aria-label="readonly input example"
-                  readonly />
-                <label class="opacity-100 fw-semibold">${'commentOwner'}</label>
-              </div>
-            </div>
-            <!-- Comment end -->
-
-            <div class="input-group">
-              <label for="text"></label>
-              <input
-                style="border-radius: 25px 0 0 25px"
-                type="text"
-                class="form-control bg-secondary bg-opacity-10"
-                placeholder="Add your comment.."
-              />
-              <button class="btn" style="border-radius: 0 25px 25px 0">
-                Post
-              </button>
-            </div>
-            </div>
-  
           </div>
         </div>`;
-    });
+    }
   } catch (error) {
     console.log(error);
   }
 }
-const postsUrl = `${API_BASE_URL}/api/v1/social/posts/?_author=true&_comments=true&_reactions=true`;
 
 getWithToken(postsUrl);
+
+// Show more results button //
+loadMore.addEventListener('click', () => {
+  getWithToken(postsUrl);
+});
+
+// Sign out
+const signOut = document.querySelector('#signOut');
+
+signOut.addEventListener('click', () => {
+  localStorage.clear('token');
+});
