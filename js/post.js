@@ -1,10 +1,10 @@
 'use strict';
 
-document
-  .querySelector('#return-from-post-specific')
-  .addEventListener('click', () => {
-    history.back();
-  });
+// document
+//   .querySelector('#return-from-post-specific')
+//   .addEventListener('click', () => {
+//     history.back();
+//   });
 
 const API_BASE_URL = 'https://nf-api.onrender.com',
   queryString = document.location.search,
@@ -12,7 +12,6 @@ const API_BASE_URL = 'https://nf-api.onrender.com',
   singlePostId = params.get('id');
 
 // Fetch unique author ID //
-
 export async function getUser(url) {
   try {
     // console.log(url);
@@ -73,9 +72,9 @@ const newPost = {
 };
 
 // Delete post
-let postId;
+
 const deleteButton = document.querySelector('.delete-button');
-const deleteUrl = `${API_BASE_URL}/api/v1/social/posts/4454`;
+const deleteUrl = `${API_BASE_URL}/api/v1/social/posts/4459`;
 const token = localStorage.getItem('token');
 
 const deletePost = fetch(deleteUrl, {
@@ -88,9 +87,11 @@ const deletePost = fetch(deleteUrl, {
   console.log('delete response', response);
 });
 
-// deleteButton.addEventListener('click', () => {
-//   deletePost(deleteUrl);
-// });
+deleteButton.addEventListener('click', () => {
+  deletePost(deleteUrl);
+});
+
+deletePost(deleteUrl);
 
 // Post new post
 
