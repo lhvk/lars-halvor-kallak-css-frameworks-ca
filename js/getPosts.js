@@ -17,7 +17,7 @@ async function getPost(url, body) {
     const json = await response.json();
     console.log('post', json);
   } catch (error) {
-    prompt(error);
+    alert(error);
     console.log(error);
   }
 }

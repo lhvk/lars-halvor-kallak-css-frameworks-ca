@@ -6,7 +6,6 @@ const loginBtn = document.querySelector('#login-button');
 
 async function loginUser(url, userData) {
   try {
-    console.log('user data', url, userData);
     const postData = {
       method: 'POST',
       headers: {
@@ -16,10 +15,8 @@ async function loginUser(url, userData) {
     };
     const response = await fetch(url, postData);
 
-    console.log('postdata ', postData);
-    console.log('response ', response);
     const json = await response.json();
-    console.log('json ', json);
+
     const token = json.accessToken;
     localStorage.setItem('token', token);
   } catch (error) {
