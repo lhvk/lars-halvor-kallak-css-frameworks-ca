@@ -2,12 +2,10 @@
 
 const homeFeed = document.querySelector('#home-feed');
 const loadMore = document.querySelector('#load-more');
-//
-// let numberOfPosts = 20;
-// let offset = 0;
-//
+let limit = 4;
+let offset = 700;
 const API_BASE_URL = 'https://nf-api.onrender.com';
-const postsUrl = `${API_BASE_URL}/api/v1/social/posts?&_author=true&_comments=true&_reactions=true&limit=20
+const postsUrl = `${API_BASE_URL}/api/v1/social/posts?&_author=true&_comments=true&_reactions=true&limit=${limit}&offset=${offset}
 `;
 
 async function getWithToken(url) {
@@ -73,9 +71,7 @@ async function getWithToken(url) {
                 <i class="bi bi-three-dots"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/post.html/${postId}">View Post</a></li>
-                <li><a class="dropdown-item" href="#">Edit post</a></li>
-                <li><a class="dropdown-item delete-button" href="/index.html">Delete post</a></li>
+                <li><a class="dropdown-item" href="/post.html?id=${postId}">View Post</a></li>
               </ul>
             </div>
           </div>

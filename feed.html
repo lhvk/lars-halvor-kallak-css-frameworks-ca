@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Social Media Page | Home</title>
+  </head>
+  <body>
+    <!-- Navigation start -->
+    <header class="py-3 mb-3 border-bottom">
+      <div
+        class="container-fluid d-grid gap-3 align-items-center"
+        style="grid-template-columns: 1fr 2fr">
+        <a class="navbar-brand" href="#">Social Site</a>
+
+        <div class="d-flex align-items-center">
+          <form class="w-100 me-3">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search" />
+          </form>
+
+          <div class="flex-shrink-0 dropdown">
+            <a
+              href="#"
+              class="d-block text-decoration-none dropdown-toggle"
+              id="dropdownUser2"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle" />
+            </a>
+            <ul
+              class="dropdown-menu text-small shadow"
+              aria-labelledby="dropdownUser2">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider bg-white" /></li>
+              <li>
+                <a id="signOut" class="dropdown-item" href="/login.html"
+                  >Sign out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Navigation end -->
+
+    <!-- Feed & card container start-->
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col col-xxl-7 col-xl-8 col-lg-9">
+          <!-- New Post start -->
+          <form class="card mb-5 shadow" id="new-post-form">
+            <div class="card-header bg-blue py-3 px-5 mb-3">
+              <h5 class="text-white mb-0">New post</h5>
+            </div>
+
+            <div class="form-group py-4 px-5">
+              <!-- Title -->
+              <input
+                id="new-post-title"
+                type="text"
+                class="form-control bg-secondary bg-opacity-10"
+                placeholder="Title of your post"
+                aria-label="post title"
+                required />
+              <!-- Text area -->
+              <label for="new-post-text" class="form-label"></label>
+              <textarea
+                placeholder="Share something.."
+                class="form-control bg-secondary bg-opacity-10"
+                id="new-post-text"
+                rows="2"></textarea>
+              <!-- Media -->
+              <label for="new-post-media" class="form-label"></label>
+              <div class="input-group">
+                <span
+                  class="input-group-text bg-blue text-white bi bi-upload"></span>
+                <input
+                  placeholder="URL for media content"
+                  type="url"
+                  class="form-control bg-secondary bg-opacity-10"
+                  id="new-post-media" />
+              </div>
+              <!-- Tags -->
+              <label for="new-post-tags" class="form-label"></label>
+              <input
+                placeholder="Tags"
+                type="text"
+                class="form-control bg-secondary bg-opacity-10 mb-4"
+                id="new-post-tags" />
+              <div class="d-flex justify-content-end">
+                <button class="btn share-button" type="submit">Share</button>
+              </div>
+            </div>
+          </form>
+          <!-- New Post end -->
+
+          <!-- Feed heading start -->
+          <div class="mb-3">
+            <h2>feed</h2>
+          </div>
+          <!-- Feed heading end -->
+
+          <!-- Cards start -->
+          <div id="home-feed"></div>
+          <!-- Cards end -->
+
+          <!-- Load more start -->
+          <div class="d-flex justify-content-center">
+            <button
+              id="load-more"
+              class="btn rounded-pill ps-4 pe-4 shadow mt-4 mb-4"
+              type="button">
+              Load more ..
+            </button>
+          </div>
+          <!-- Load more end -->
+        </div>
+      </div>
+    </div>
+    <!-- Feed & card container end -->
+    <!-- Footer start -->
+    <footer><div>2022 &copy;</div></footer>
+    <!-- Footer end -->
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+    <script src="/js/feed.js"></script>
+  </body>
+</html>
