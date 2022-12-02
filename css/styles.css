@@ -10823,6 +10823,11 @@ VARIABLES
 /* ========================================================
 CARDS
 ======================================================== */
+.image-wrapper {
+  position: relative;
+  margin-bottom: -100px;
+}
+
 .profile-avatar {
   width: 200px;
   height: 200px;
@@ -10902,6 +10907,10 @@ body {
   width: 2rem;
   height: 2rem;
   color: #1e3163;
+}
+
+.banner-image-container {
+  margin-bottom: 100px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -5,13 +5,15 @@
     placeholder="Write on wall.."
     class="form-control bg-secondary bg-opacity-10"
     id="exampleFormControlTextarea1"
-    rows="2"></textarea>
+    rows="2"
+  ></textarea>
 </div>
 <div class="p-0 mb-5 container">
   <button
     class="btn shadow"
     type="submit"
-    data-bs-target="exampleFormControlTextarea1">
+    data-bs-target="exampleFormControlTextarea1"
+  >
     Post to wall
   </button>
 </div>
@@ -24,7 +26,8 @@
         ><img
           src="/images/profileImages/profile02.jpg"
           alt="user avatar"
-          class="post-avatar rounded-circle" />
+          class="post-avatar rounded-circle"
+        />
       </a>
       <div class="d-flex flex-column ms-2 mt-1">
         <h5 class="mb-0">JayJay Okocha</h5>
@@ -40,7 +43,8 @@
         href="#"
         role="button"
         data-bs-toggle="dropdown"
-        aria-expanded="false">
+        aria-expanded="false"
+      >
         <i class="bi bi-three-dots"></i>
       </a>
       <ul class="dropdown-menu">
@@ -64,7 +68,8 @@
         style="border-radius: 25px 0 0 25px"
         type="text"
         class="form-control bg-secondary bg-opacity-10"
-        placeholder="Add your comment.." />
+        placeholder="Add your comment.."
+      />
       <button class="btn" style="border-radius: 0 25px 25px 0">Post</button>
     </div>
   </div>
@@ -77,7 +82,8 @@
         ><img
           src="/images/profileImages/profile03.jpg"
           alt="user avatar"
-          class="post-avatar rounded-circle" />
+          class="post-avatar rounded-circle"
+        />
       </a>
       <div class="d-flex flex-column ms-2 mt-1">
         <h5 class="mb-0">Nora Drinkwater</h5>
@@ -93,7 +99,8 @@
         href="#"
         role="button"
         data-bs-toggle="dropdown"
-        aria-expanded="false">
+        aria-expanded="false"
+      >
         <i class="bi bi-three-dots"></i>
       </a>
       <ul class="dropdown-menu">
@@ -121,7 +128,8 @@
         <img
           src="/images/profileImages/profile02.jpg"
           alt="user avatar"
-          class="post-avatar-sm rounded-circle me-2" />
+          class="post-avatar-sm rounded-circle me-2"
+        />
       </a>
       <div class="form-floating">
         <input
@@ -129,7 +137,8 @@
           type="text"
           value="This text is long and could be longer if I just had the stamina to write more.."
           aria-label="readonly input example"
-          readonly />
+          readonly
+        />
         <label class="opacity-100 fw-semibold">JayJay Okocha</label>
       </div>
     </div>
@@ -141,7 +150,8 @@
         <img
           src="/images/profileImages/profile02.jpg"
           alt="user avatar"
-          class="post-avatar-sm rounded-circle me-2" />
+          class="post-avatar-sm rounded-circle me-2"
+        />
       </a>
       <div class="form-floating">
         <input
@@ -149,7 +159,8 @@
           type="text"
           value="ROFL MAO, Nora 😂"
           aria-label="readonly input example"
-          readonly />
+          readonly
+        />
         <label class="opacity-100 fw-semibold">JayJay Okocha</label>
       </div>
     </div>
@@ -161,7 +172,8 @@
         style="border-radius: 25px 0 0 25px"
         type="text"
         class="form-control bg-secondary bg-opacity-10"
-        placeholder="Add your comment.." />
+        placeholder="Add your comment.."
+      />
       <button class="btn" style="border-radius: 0 25px 25px 0">Post</button>
     </div>
   </div>
@@ -184,21 +196,24 @@
       type="button"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar">
+      aria-controls="offcanvasNavbar"
+    >
       <i class="bi bi-list text-light fs-2"></i>
     </span>
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
       id="offcanvasNavbar"
-      aria-labelledby="offcanvasNavbarLabel">
+      aria-labelledby="offcanvasNavbarLabel"
+    >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Social Site</h5>
         <span
           class="bi bi-x navbar-toggler border-0 p-0 nav-x text-light fs-2"
           type="button"
           data-bs-dismiss="offcanvas"
-          aria-label="Close"></span>
+          aria-label="Close"
+        ></span>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -214,7 +229,8 @@
             class="form-control me-2"
             type="search"
             placeholder="Search"
-            aria-label="Search" />
+            aria-label="Search"
+          />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -231,7 +247,8 @@
       src="${commentAvatar}"
       alt="user avatar"
       class="post-avatar-sm rounded-circle me-2"
-      onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'" />
+      onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
+    />
   </a>
   <div class="form-floating post-comment">
     <input
@@ -239,7 +256,8 @@
       type="text"
       value="${commentBody}"
       aria-label="readonly input example"
-      readonly />
+      readonly
+    />
     <label class="opacity-100 fw-semibold">${commentAuthor}</label>
   </div>
 </div>
@@ -251,7 +269,8 @@
     style="border-radius: 25px 0 0 25px"
     type="text"
     class="form-control bg-secondary bg-opacity-10"
-    placeholder="Add your comment.." />
+    placeholder="Add your comment.."
+  />
   <button class="btn" style="border-radius: 0 25px 25px 0">Post</button>
 </div>
 
@@ -263,7 +282,8 @@
       data-bs-toggle="collapse"
       data-bs-target="#multiCollapseExample2"
       aria-expanded="false"
-      aria-controls="multiCollapseExample2">
+      aria-controls="multiCollapseExample2"
+    >
       Toggle first element
     </button>
     <button
@@ -272,7 +292,8 @@
       data-bs-toggle="collapse"
       data-bs-target="#multiCollapseExample2"
       aria-expanded="false"
-      aria-controls="multiCollapseExample2">
+      aria-controls="multiCollapseExample2"
+    >
       Toggle second element
     </button>
   </p>
@@ -296,7 +317,8 @@
                 src="${commentAvatar}"
                 alt="user avatar"
                 class="post-avatar-sm rounded-circle me-2"
-                onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'" />
+                onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
+              />
             </a>
             <div class="form-floating post-comment">
               <input
@@ -304,7 +326,8 @@
                 type="text"
                 value="${commentBody}"
                 aria-label="readonly input example"
-                readonly />
+                readonly
+              />
               <label class="opacity-100 fw-semibold">${commentAuthor}</label>
             </div>
           </div>
@@ -314,3 +337,11 @@
     </div>
   </div>
 </div>
+
+<script>
+
+  for (let i = 0; i < userData.posts.length; i++) {
+      const post = userData.posts[i];
+
+      console.log(post);
+</script>
