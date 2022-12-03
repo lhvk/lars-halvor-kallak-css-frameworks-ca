@@ -14,9 +14,7 @@ const CREATE_ENTRY = "/api/v1/social/posts";
 const addNewPostUrl = `${API_BASE_URL}${CREATE_ENTRY}`;
 
 // New Post Button
-document.querySelector(".share-button").addEventListener("click", function (e) {
-  e.preventDefault(
-    addNewPost(addNewPostUrl, newPostData),
-    document.location.reload()
-  );
-});
+// document.querySelector(".share-button").addEventListener("click", function (e) {
+//   e.preventDefault();
+//   addNewPost(addNewPostUrl, newPostData);
+// });

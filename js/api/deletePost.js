@@ -5,11 +5,13 @@ Delete Post
 ======================================================================================================*/
 // TODO: Not tested
 
-let postId;
+const queryString = document.location.search,
+  params = new URLSearchParams(queryString),
+  postId = params.get("id");
 const deleteUrl = `https://nf-api.onrender.com/api/v1/social/posts/${postId}`;
 const token = localStorage.getItem("token");
 
-export const deletePost = fetch(deleteUrl, {
+const deletePost = fetch(deleteUrl, {
   method: "DELETE",
   headers: {
     "Content-type": "application/json",
@@ -17,9 +19,14 @@ export const deletePost = fetch(deleteUrl, {
   },
 }).then((response) => {
   console.log("delete response", response);
-  alert(`${response} has been deleted`);
-});
-
-document.querySelector(".delete-button").addEventListener("click", () => {
-  deletePost(deleteUrl);
+  switch (response.status) {
+    case 200:
+      alert("Message successfully deleted");
+      break;
+    case 403:
+      alert("You can't delete other people's messages!");
+      break;
+    default:
+      "Dunno what's wrong";
+  }
 });

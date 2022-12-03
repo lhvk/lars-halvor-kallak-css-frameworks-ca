@@ -20,13 +20,13 @@ async function getAllPosts(url) {
       },
     };
     const response = await fetch(url, fetchOptions);
-    console.log(response);
+    // console.log("all posts response: ", response);
     const json = await response.json();
 
     //html
     allPosts(json);
 
-    console.log(json);
+    // console.log("all posts json: ", json);
   } catch (error) {
     console.log(error);
   }
@@ -40,6 +40,6 @@ document.querySelector("#load-more").addEventListener("click", () => {
 });
 
 // Sign out
-document.querySelector("#signOut").addEventListener("click", (e) => {
-  localStorage.clear("token");
+document.querySelector("#signOut").addEventListener("click", () => {
+  sessionStorage.clear(token);
 });

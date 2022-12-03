@@ -50,3 +50,9 @@ body {
 .banner-image-container {
   margin-bottom: 100px;
 }
+
+.flex-col-gap-1 {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}

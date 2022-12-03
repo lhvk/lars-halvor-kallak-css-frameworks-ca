@@ -1,8 +1,6 @@
 "use strict";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
-const errorMessage = document.querySelector(".error-message");
-const registerBtn = document.querySelector("#register-btn");
 
 async function registerUser(url, userData) {
   console.log("user data", userData);
@@ -21,8 +19,6 @@ async function registerUser(url, userData) {
 
     const json = await response.json();
 
-    console.log("json errors ", json.errors[0].message);
-
     console.log("json ", json);
   } catch (error) {
     console.log("error", error);
@@ -35,8 +31,8 @@ const userToRegister = {
   email: document.querySelector("#email").value,
   password: document.querySelector("#password").value,
 };
-registerBtn.addEventListener("click", (e) => {
-  e.preventDefault;
+document.querySelector("#register-btn").addEventListener("submit", (event) => {
+  event.preventDefault();
   registerUser(registerUrl, userToRegister);
 });
 
