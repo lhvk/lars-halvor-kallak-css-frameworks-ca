@@ -1,12 +1,5 @@
 "use strict";
 
-import { deletePost } from "../api/deletePost.js";
-
-document.querySelector(".delete-button").addEventListener("click", (e) => {
-  deletePost(deleteUrl);
-  console.log(e);
-});
-
 /*======================================================================================================
 Single Post
 ======================================================================================================*/
@@ -50,7 +43,7 @@ export const singlePost = (post) => {
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Edit</a></li>
-          <li><a class="dropdown-item delete-button href="#">Delete</a></li>
+          <li><a class="dropdown-item" id="delete-btn">Delete</a></li>
         </ul>
       </div>
     </div>

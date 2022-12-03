@@ -45,11 +45,9 @@ export const userPosts = function (userData) {
           <i class="bi bi-three-dots"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/post.html/${
+          <li><a class="dropdown-item" href="/post.html?id=${
             post.id
           }">View Post</a></li>
-          <li><a class="dropdown-item" href="#">Edit post</a></li>
-          <li><a class="dropdown-item delete-button" href="/index.html">Delete post</a></li>
         </ul>
       </div>
     </div>
