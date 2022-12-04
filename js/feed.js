@@ -29,14 +29,14 @@ document.querySelector(".share-button").addEventListener("click", async (e) => {
 /*======================================================================================================
 GET ALL POSTS
 ======================================================================================================*/
-let limit = 3;
+let limit = 6;
 let offset = 0;
 const LIMIT_OFFSET = `&limit=${limit}&offset=${offset}`;
 const ALL_POSTS = "?&_author=true&_comments=true&_reactions=true";
 const postsUrl = `${API_BASE_URL}${POSTS}${ALL_POSTS}${LIMIT_OFFSET}
 `;
 
-getAllPosts(postsUrl);
+getAllPosts(postsUrl, limit);
 
 /*======================================================================================================
 SHOW MORE RESULTS & SIGN OUT EVENTHANDLERS
