@@ -3,6 +3,9 @@
 import { singlePost } from "./modules/singlePost.js";
 import { commentsPost } from "./modules/commentsPost.js";
 import { reactionsPost } from "./modules/reactionsPost.js";
+import { deletePost } from "./api/deletePost.js";
+import { signOut } from "./components/components.js";
+import { updatePost } from "./api/updatePost.js";
 
 document.querySelector("#return").addEventListener("click", () => {
   history.back();
@@ -13,7 +16,6 @@ const API_BASE_URL = "https://nf-api.onrender.com",
   params = new URLSearchParams(queryString),
   postId = params.get("id"),
   singlePostUrl = `${API_BASE_URL}/api/v1/social/posts/${postId}?_author=true&_comments=true&_reactions=true`;
-console.log(postId);
 // Fetch unique post ID //
 async function getSinglePost(url) {
   try {
@@ -32,6 +34,8 @@ async function getSinglePost(url) {
     singlePost(post);
     commentsPost(post);
     reactionsPost(post);
+    deletePost();
+    updatePost();
 
     // Change document title //
     document.title = `Social Media Page | ${post.title}`;
@@ -43,3 +47,6 @@ async function getSinglePost(url) {
 }
 
 getSinglePost(singlePostUrl);
+
+// Sign out
+signOut();

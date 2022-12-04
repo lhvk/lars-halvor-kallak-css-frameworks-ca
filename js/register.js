@@ -1,9 +1,9 @@
 "use strict";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
+const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
 
 async function registerUser(url, userData) {
-  console.log("user data", userData);
   try {
     const postData = {
       method: "POST",
@@ -13,28 +13,34 @@ async function registerUser(url, userData) {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, postData);
-
-    console.log("post data ", postData);
-    console.log("response ", response);
-
-    const json = await response.json();
-
-    console.log("json ", json);
+    console.log(response);
+    if (response.ok) {
+      const json = await response.json();
+      console.log(json);
+      const token = json.accessToken;
+      localStorage.setItem("token", token);
+      location.replace("/feed.html");
+    } else {
+      alert("Something went wrong");
+    }
   } catch (error) {
-    console.log("error", error);
+    alert("error", error);
   }
 }
-const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
 
-const userToRegister = {
-  name: document.querySelector("#username").value,
-  email: document.querySelector("#email").value,
-  password: document.querySelector("#password").value,
-};
-document.querySelector("#register-btn").addEventListener("submit", (event) => {
-  event.preventDefault();
-  registerUser(registerUrl, userToRegister);
-});
+document
+  .querySelector("#register-btn")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const userToRegister = {
+      name: document.querySelector("#username").value,
+      email: document.querySelector("#email").value,
+      password: document.querySelector("#password").value,
+    };
+
+    registerUser(registerUrl, userToRegister);
+  });
 
 //   name: john_the_blacksmith
 //   email: blacksmith_john@noroff.no

@@ -5,9 +5,11 @@ List of the user's posts
 ======================================================================================================*/
 
 export const userPosts = function (userData) {
-  userData.posts.forEach((post) => {
-    document.querySelector(".loader-container").innerHTML = "";
-    document.querySelector("#profile-posts").innerHTML += `
+  userData.posts.length === 0
+    ? (document.querySelector("#profile-posts").innerHTML = "")
+    : userData.posts.forEach((post) => {
+        document.querySelector(".loader-container").innerHTML = "";
+        document.querySelector("#profile-posts").innerHTML += `
     <div class="card mb-3 shadow">
     <div
       class="card-header bg-white d-flex justify-content-between border-bottom border-0"
@@ -62,5 +64,5 @@ export const userPosts = function (userData) {
       </p>      
     </div>
   </div>`;
-  });
+      });
 };

@@ -1,7 +1,7 @@
 "use strict";
 
 const API_BASE_URL = "https://nf-api.onrender.com";
-const errorMessage = document.querySelector(".error-message");
+const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 
 async function loginUser(url, userData) {
   try {
@@ -13,25 +13,29 @@ async function loginUser(url, userData) {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, postData);
-    console.log(response);
-
-    const json = await response.json();
-    const token = json.accessToken;
-    localStorage.setItem("token", token);
-    await loginUser(loginUrl, userLogin);
-    location.replace("/feed.html");
+    if (response.ok) {
+      const json = await response.json();
+      const token = json.accessToken;
+      localStorage.setItem("token", token);
+      location.replace("/feed.html");
+    } else {
+      alert("Wrong username or password");
+    }
   } catch (error) {
-    console.log("error", error);
+    alert("error", error);
   }
 }
-const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
 
-const userLogin = {
-  email: document.querySelector("#email").value,
-  password: document.querySelector("#password").value,
-};
-
-document.querySelector("form").addEventListener("submit", (e) => {
+document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
-  loginUser(loginUrl, userLogin);
+
+  const userLogin = {
+    email: document.querySelector("#email").value,
+    password: document.querySelector("#password").value,
+  };
+
+  await loginUser(loginUrl, userLogin);
 });
+
+// LarKal69841@stud.noroff.no
+// abc12345

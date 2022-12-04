@@ -13,7 +13,7 @@
       <div
         class="container-fluid d-grid gap-3 align-items-center"
         style="grid-template-columns: 1fr 2fr">
-        <a class="navbar-brand" href="#">Social Site</a>
+        <a class="navbar-brand" href="feed.html">Social Site</a>
 
         <div class="d-flex align-items-center">
           <form class="w-100 me-3">
@@ -41,12 +41,16 @@
             <ul
               class="dropdown-menu text-small shadow"
               aria-labelledby="dropdownUser2">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <a class="dropdown-item text-white" href="profile.html?id=lhvk">
+                  Profile
+                </a>
+              </li>
               <li><hr class="dropdown-divider bg-white" /></li>
               <li>
-                <a id="signOut" class="dropdown-item" href="/index.html"
-                  >Sign out</a
-                >
+                <button id="signOut" class="dropdown-item text-white">
+                  Sign out
+                </button>
               </li>
             </ul>
           </div>
@@ -79,8 +83,7 @@
                 placeholder="Share something.."
                 class="form-control bg-secondary bg-opacity-10"
                 id="new-post-text"
-                rows="2"
-                required></textarea>
+                rows="2"></textarea>
               <!-- Media -->
               <label for="new-post-media" class="form-label"></label>
               <div class="input-group">
@@ -137,6 +140,5 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"></script>
     <script type="module" src="/js/feed.js"></script>
-    <script type="module" src="/js/main.js"></script>
   </body>
 </html>

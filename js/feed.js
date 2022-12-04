@@ -1,45 +1,51 @@
 "use strict";
-// import { addNewPost } from "./api/newPost.js";
-import { allPosts } from "./modules/allPosts.js";
 
-let limit = 100;
-let offset = 0;
+import { addNewPost } from "./api/newPost.js";
+import { getAllPosts } from "./api/getAllPosts.js";
+import { signOut } from "./components/components.js";
+
+/*======================================================================================================
+CREATE NEW POST
+======================================================================================================*/
+
 const API_BASE_URL = "https://nf-api.onrender.com";
-const postsUrl = `${API_BASE_URL}/api/v1/social/posts?&_author=true&_comments=true&_reactions=true&limit=${limit}&offset=${offset}
+const POSTS = "/api/v1/social/posts";
+const addNewPostUrl = `${API_BASE_URL}${POSTS}`;
+
+// New Post Button
+document.querySelector(".share-button").addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const newPostData = {
+    title: document.querySelector("#new-post-title").value,
+    body: document.querySelector("#new-post-text").value,
+    tags: [document.querySelector("#new-post-tags")].value,
+    media: document.querySelector("#new-post-media").value,
+  };
+
+  await addNewPost(addNewPostUrl, newPostData);
+});
+
+/*======================================================================================================
+GET ALL POSTS
+======================================================================================================*/
+let limit = 3;
+let offset = 0;
+const LIMIT_OFFSET = `&limit=${limit}&offset=${offset}`;
+const ALL_POSTS = "?&_author=true&_comments=true&_reactions=true";
+const postsUrl = `${API_BASE_URL}${POSTS}${ALL_POSTS}${LIMIT_OFFSET}
 `;
-
-async function getAllPosts(url) {
-  try {
-    //
-    const token = localStorage.getItem("token");
-    const fetchOptions = {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await fetch(url, fetchOptions);
-    // console.log("all posts response: ", response);
-    const json = await response.json();
-
-    //html
-    allPosts(json);
-
-    // console.log("all posts json: ", json);
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 getAllPosts(postsUrl);
 
-// Show more results button //
+/*======================================================================================================
+SHOW MORE RESULTS & SIGN OUT EVENTHANDLERS
+======================================================================================================*/
+
+// Show more results button
 document.querySelector("#load-more").addEventListener("click", () => {
   getAllPosts(postsUrl);
 });
 
 // Sign out
-document.querySelector("#signOut").addEventListener("click", () => {
-  sessionStorage.clear(token);
-});
+signOut();

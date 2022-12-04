@@ -1,4 +1,5 @@
 "use strict";
+import { signOut } from "./components/components.js";
 import { profileCard } from "./modules/profileCard.js";
 import { userFollowers } from "./modules/userFollowers.js";
 import { userFollowing } from "./modules/userFollowing.js";
@@ -28,8 +29,7 @@ export async function getUser(url) {
     const response = await fetch(url, fetchOptions);
     const userData = await response.json();
 
-    console.log("response", response);
-    console.log("json", userData);
+    console.log(token);
     // End of fetch //
 
     // Change document title //
@@ -50,3 +50,6 @@ export async function getUser(url) {
   }
 }
 getUser(userUrl);
+
+// Sign out
+signOut();
