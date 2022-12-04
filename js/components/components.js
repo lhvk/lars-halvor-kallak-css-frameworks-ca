@@ -3,6 +3,10 @@
 /*======================================================================================================
 COMPONENTS
 ======================================================================================================*/
+// Change document title
+export const changeDocTitle = (title) => {
+  document.title = `Social Media Page | ${title}`;
+};
 
 // Sign out eventhandler
 export const signOut = () => {
