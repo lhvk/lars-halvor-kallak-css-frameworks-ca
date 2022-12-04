@@ -10799,8 +10799,8 @@ header :hover,
 }
 
 .dropdown-item:hover {
-  background-color: inherit;
-  color: #f037a5;
+  color: #fff;
+  background-color: #f037a5;
 }
 
 /* ========================================================

@@ -1,4 +1,4 @@
-@import '_variables.scss';
+@import "_variables.scss";
 
 /* ========================================================
 NAVIGATION
@@ -18,8 +18,8 @@ header,
 }
 
 .dropdown-item:hover {
-  background-color: inherit;
-  color: $pink;
+  color: #fff;
+  background-color: $pink;
 }
 
 /* ========================================================

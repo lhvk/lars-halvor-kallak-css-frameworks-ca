@@ -1,33 +1,31 @@
 "use strict";
 
-/**
- * @param {addNewPost} url
- * @param {addNewPost} newPostData
- */
+import { allPosts } from "../modules/allPosts.js";
 
+/**
+ *
+ * @param {getAllPosts} url
+ */
 /*======================================================================================================
-New Post
+Get all posts
 ======================================================================================================*/
 
-export async function addNewPost(url, newPostData) {
+export const getAllPosts = async function (url, limit) {
   try {
     //
     const token = localStorage.getItem("token");
     const fetchOptions = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(newPostData),
     };
-    const response = await fetch(url, fetchOptions);
-    if (response.ok) {
-      location.reload();
-    } else {
-      alert("Failed to post");
-    }
+    const response = await fetch(url, fetchOptions, limit++);
+    const json = await response.json();
+    // html for all posts in the feed
+    allPosts(json);
   } catch (error) {
     alert(error);
   }
-}
+};

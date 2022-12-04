@@ -42,8 +42,8 @@ export const singlePost = (post) => {
           <i class="bi bi-three-dots"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Edit</a></li>
-          <li><a class="dropdown-item" id="delete-btn">Delete</a></li>
+          <button class="dropdown-item text-white" id="edit-btn" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</button>
+          <button class="dropdown-item text-white" id="delete-btn" type"submit">Delete</button>
         </ul>
       </div>
     </div>
@@ -103,5 +103,61 @@ export const singlePost = (post) => {
       </div>
     </div>
   </div>
-  </div>`;
+  </div>
+  
+<!-- edit post modal start -->
+<div class="modal fade" id="edit-post-modal" tabindex="-1" aria-labelledby="edit-post-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-blue text-white">
+        <h5 class="modal-title fs-5" id="edit-post-modal-label">Edit post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <!-- edit post form end -->
+      <form id="edit-post-form">
+      <div class="form-group">
+        <!-- Title -->
+        <input
+          id="edit-post-title"
+          class="form-control bg-secondary bg-opacity-10"
+          placeholder="Title of your post"
+          aria-label="post title"
+          required />
+        <!-- Text area -->
+        <label for="edit-post-text" class="form-label"></label>
+        <textarea
+          placeholder="Share something.."
+          class="form-control bg-secondary bg-opacity-10"
+          id="edit-post-text"
+          rows="2"></textarea>
+        <!-- Media -->
+        <label for="edit-post-media" class="form-label"></label>
+        <div class="input-group">
+          <span
+            class="input-group-text bg-blue text-white bi bi-upload"></span>
+          <input
+            placeholder="URL for media content"
+            class="form-control bg-secondary bg-opacity-10"
+            id="edit-post-media" />
+        </div>
+        <!-- Tags -->
+        <label for="edit-post-tags" class="form-label"></label>
+        <input
+          placeholder="Tags"
+          class="form-control bg-secondary bg-opacity-10 mb-4"
+          id="edit-post-tags" />
+      </div>
+    </form>
+    <!-- edit post form end -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" form="edit-post-form" class="btn edit-submit-btn">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit post modal end -->
+  `;
 };
