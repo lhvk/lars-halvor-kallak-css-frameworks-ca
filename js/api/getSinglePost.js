@@ -15,9 +15,9 @@ export const getSinglePost = async (url, fetchOptions, getHtml) => {
   try {
     fetchOptions;
     const response = await fetch(url, fetchOptions);
-    console.log(response);
+    console.log("response", response);
     const post = await response.json();
-    console.log(post);
+    console.log("post", post);
     // End of fetch //
 
     // html

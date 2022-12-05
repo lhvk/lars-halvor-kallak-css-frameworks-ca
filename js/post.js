@@ -31,12 +31,8 @@ const fetchOptions = {
   },
 };
 
-/*======================================================================================================
-UPDATE SINGLE POST
-======================================================================================================*/
-
-const POSTS_URL = "/api/v1/social/posts";
-const updatePostUrl = `${API_BASE_URL}${POSTS_URL}/359`;
+const POSTS_URL = "/api/v1/social/posts/";
+const updatePostUrl = `${API_BASE_URL}${POSTS_URL}${postId}`;
 
 const getHtml = function (post) {
   changeDocTitle(post.title);
@@ -44,13 +40,30 @@ const getHtml = function (post) {
   commentsPost(post);
   reactionsPost(post);
   deletePost();
+
+  /*======================================================================================================
+UPDATE SINGLE POST
+======================================================================================================*/
+
+  const { body, media, title, tags } = post;
+  const editTitle = document.querySelector("#edit-post-title");
+  const editBody = document.querySelector("#edit-post-text");
+  const editTags = [document.querySelector("#edit-post-tags")];
+  const editMedia = document.querySelector("#edit-post-media");
+
+  editTitle.value = title;
+  editBody.value = body;
+  editTags.value = tags;
+  editMedia.value = media;
+
   document.querySelector(".edit-submit-btn").addEventListener("click", (e) => {
     e.preventDefault();
+
     const data = {
-      title: document.querySelector("#edit-post-title").value,
-      body: document.querySelector("#edit-post-text").value,
-      tags: [document.querySelector("#edit-post-tags")].value,
-      media: document.querySelector("#edit-post-media").value,
+      title: editTitle.value,
+      body: editBody.value,
+      tags: editTags.value,
+      media: editMedia.value,
     };
 
     const optionsPut = {
