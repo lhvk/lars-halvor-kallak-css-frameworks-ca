@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*======================================================================================================
 List of the the users the user is following
@@ -7,7 +7,7 @@ List of the the users the user is following
 export const userFollowing = function (userData) {
   userData.following.forEach((following) => {
     // Following
-    document.querySelector('.following').innerHTML += `
+    document.querySelector(".following").innerHTML += `
       <div class="col">
       <a href="profile.html?id=${following.name}" class="text-dark text-decoration-none">
         <img

@@ -5,12 +5,23 @@ Profile Card
 ======================================================================================================*/
 
 export const profileCard = function (userData) {
-  document.querySelector("#user-card").innerHTML = `  
+  //
+  const userCard = document.querySelector("#user-card");
+  const modalBody = document.querySelector("#modal-body");
+  const {
+    banner,
+    avatar,
+    name,
+    email,
+    _count: { followers, following, posts },
+  } = userData;
+  //
+  userCard.innerHTML = `  
     <div class="card border-0 align-items-center d-flex flex-column">
       <div 
       class="d-flex justify-content-center align-items-end w-100 banner-image-container bg-light"
       style="
-            background-image: url(${userData.banner}); 
+            background-image: url(${banner}); 
             background-position: center; 
             background-size: cover; 
             background-repeat: no-repeat;
@@ -20,7 +31,7 @@ export const profileCard = function (userData) {
             ">
         <div class="image-wrapper">
           <img
-            src="${userData.avatar}"
+            src="${avatar}"
             alt="user avatar"
             class="card-img-top profile-avatar rounded-circle border border-5 border-white mb-1"
             onerror="this.onerror=null; 
@@ -32,8 +43,8 @@ export const profileCard = function (userData) {
         </div>
       </div>
       <div class="card-body" style="max-width: 720px">
-        <h5 class="mb-3 text-center card-title">${userData.name}</h5>
-        <h6 class="card-subtitle text-muted text-center">${userData.email}</h6>
+        <h5 class="mb-3 text-center card-title">${name}</h5>
+        <h6 class="card-subtitle text-muted text-center">${email}</h6>
         <div class="card-footer border-0 bg-white">
   
           <small
@@ -42,7 +53,7 @@ export const profileCard = function (userData) {
             data-bs-toggle="modal"
             data-bs-target="#followersModal"
           >
-            <strong>Followers: </strong>${userData._count.followers}
+            <strong>Followers: </strong>${followers}
           </small>
           
           <small
@@ -51,11 +62,11 @@ export const profileCard = function (userData) {
             data-bs-toggle="modal"
             data-bs-target="#followingModal"
           >
-            <strong>Following: </strong>${userData._count.following}
+            <strong>Following: </strong>${following}
           </small>
     
           <small class="card-text">
-            <strong> Posts: </strong>${userData._count.posts}
+            <strong> Posts: </strong>${posts}
           </small>
   
         </div>
@@ -63,9 +74,10 @@ export const profileCard = function (userData) {
     </div>`;
 
   // Prompts a modal when avatar is clicked on
-  document.querySelector("#modal-body").innerHTML = `
+
+  modalBody.innerHTML = `
     <img
-      src="${userData.avatar}"
+      src="${avatar}"
       class="modal-avatar"
       alt="..."
       onerror="this.onerror=null; 

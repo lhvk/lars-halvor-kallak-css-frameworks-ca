@@ -5,19 +5,24 @@ List of the user's posts
 ======================================================================================================*/
 
 export const userPosts = function (userData) {
+  const profilePosts = document.querySelector("#profile-posts");
+  const loaderContainer = document.querySelector(".loader-container");
+  //
   userData.posts.length === 0
-    ? (document.querySelector("#profile-posts").innerHTML = "")
+    ? (profilePosts.innerHTML = "")
     : userData.posts.forEach((post) => {
-        document.querySelector(".loader-container").innerHTML = "";
-        document.querySelector("#profile-posts").innerHTML += `
+        //
+        const { body, created, id, media, owner, title } = post;
+        const formattedDate = Date(created).substring(0, 11);
+        //
+        loaderContainer.innerHTML = "";
+        profilePosts.innerHTML += `
     <div class="card mb-3 shadow">
     <div
       class="card-header bg-white d-flex justify-content-between border-bottom border-0"
     >
       <div class="d-flex">
-        <a href="profile.html?id=${
-          post.owner
-        }" class="text-decoration-none text-dark"
+        <a href="profile.html?id=${owner}" class="text-decoration-none text-dark"
           ><img
             src="${"avatar"}" 
             alt="user avatar"
@@ -26,12 +31,9 @@ export const userPosts = function (userData) {
           />
         </a>
         <div class="d-flex flex-column ms-2 mt-1">
-          <h5 class="card-title mb-0">${post.owner}</h5>
+          <h5 class="card-title mb-0">${owner}</h5>
           <p class="card-text">
-            <small class="text-muted">Posted ${Date(post.created).substring(
-              0,
-              11
-            )}</small>
+            <small class="text-muted">Posted ${formattedDate}</small>
           </p>
         </div>
       </div>
@@ -47,20 +49,16 @@ export const userPosts = function (userData) {
           <i class="bi bi-three-dots"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/post.html?id=${
-            post.id
-          }">View Post</a></li>
+          <li><a class="dropdown-item" href="/post.html?id=${id}">View Post</a></li>
         </ul>
       </div>
     </div>
     <!-- Dropdown end -->     
-    <img class="card-img-top rounded-0" src="${
-      post.media
-    }" alt="Card image" onerror="this.style.display='none'"/>
+    <img class="card-img-top rounded-0" src="${media}" alt="Card image" onerror="this.style.display='none'"/>
     <div class="card-body">
-    <h6 class="card-subtitle mb-2">${post.title}</h6>
+    <h6 class="card-subtitle mb-2">${title}</h6>
       <p class="card-text">
-        ${post.body}
+        ${body}
       </p>      
     </div>
   </div>`;
