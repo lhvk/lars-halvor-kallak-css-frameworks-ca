@@ -12,7 +12,8 @@ New Post
 export async function addNewPost(url, newPostData) {
   try {
     //
-    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("userLoggedIn"));
+    const { token } = user;
     const fetchOptions = {
       method: "POST",
       headers: {

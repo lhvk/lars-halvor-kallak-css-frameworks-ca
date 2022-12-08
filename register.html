@@ -10,10 +10,8 @@
   <body>
     <!-- Navigation start -->
     <header class="py-3 mb-3 border-bottom">
-      <div
-        class="container-fluid d-grid gap-3 align-items-center"
-        style="grid-template-columns: 1fr 2fr">
-        <a class="navbar-brand" href="#">Social Site</a>
+      <div class="container d-flex align-items-center justify-content-between">
+        <a class="navbar-brand">Social Site</a>
       </div>
     </header>
     <!-- Navigation end -->
@@ -22,7 +20,23 @@
       <h1 class="mb-0">Register</h1>
       <p class="leading mb-0">Enter desired username, email and password</p>
 
-      <label for="username" class="visually-hidden">Username</label>
+      <label for="user-avatar" class="visually-hidden">Username</label>
+      <input
+        name="user-avatar"
+        id="user-avatar"
+        type="text"
+        class="form-control"
+        placeholder="URL for avatar" />
+
+      <label for="banner" class="visually-hidden">URL for banner</label>
+      <input
+        name="banner"
+        id="banner"
+        type="text"
+        class="form-control"
+        placeholder="URL for banner" />
+
+      <label for="username" class="visually-hidden">URL for banner</label>
       <input
         name="username"
         id="username"
@@ -37,8 +51,9 @@
         type="email"
         class="form-control"
         id="email"
-        placeholder="email@example.com"
+        placeholder="valid_email@stud.noroff.no / noroff.no "
         required />
+
       <label for="password" class="visually-hidden">Password</label>
       <input
         name="password"
@@ -47,9 +62,11 @@
         id="password"
         placeholder="password"
         required />
+
       <button id="register-btn" type="submit" class="btn btn-primary w-100">
         Register
       </button>
+
       <div class="text-center">
         Already a member? <a href="index.html">Login</a>
       </div>

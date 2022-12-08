@@ -13,35 +13,31 @@ async function registerUser(url, userData) {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, postData);
-    console.log(response);
+    const json = await response.json();
+
     if (response.ok) {
-      const json = await response.json();
-      console.log(json);
-      const token = json.accessToken;
-      localStorage.setItem("token", token);
-      location.replace("/feed.html");
+      alert("User has been created. You can now log in");
+      location.replace("/index.html");
     } else {
-      alert("Something went wrong");
+      json.errors.forEach((error) => {
+        alert(error.message);
+      });
     }
   } catch (error) {
     alert("error", error);
   }
 }
 
-document
-  .querySelector("#register-btn")
-  .addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.querySelector("#register-btn").addEventListener("click", async (e) => {
+  e.preventDefault();
 
-    const userToRegister = {
-      name: document.querySelector("#username").value,
-      email: document.querySelector("#email").value,
-      password: document.querySelector("#password").value,
-    };
+  const userToRegister = {
+    name: document.querySelector("#username").value,
+    email: document.querySelector("#email").value,
+    password: document.querySelector("#password").value,
+    avatar: document.querySelector("#user-avatar").value,
+    banner: document.querySelector("#banner").value,
+  };
 
-    registerUser(registerUrl, userToRegister);
-  });
-
-//   name: john_the_blacksmith
-//   email: blacksmith_john@noroff.no
-//   password: abc12345
+  registerUser(registerUrl, userToRegister);
+});

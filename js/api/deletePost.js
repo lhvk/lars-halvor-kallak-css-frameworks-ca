@@ -8,7 +8,8 @@ const queryString = document.location.search,
   params = new URLSearchParams(queryString),
   postId = params.get("id");
 const deleteUrl = `https://nf-api.onrender.com/api/v1/social/posts/${postId}`;
-const token = localStorage.getItem("token");
+const user = JSON.parse(localStorage.getItem("userLoggedIn"));
+const { token } = user;
 
 export const deletePost = () => {
   document.querySelector("#delete-btn").addEventListener("click", (e) => {
@@ -21,7 +22,6 @@ export const deletePost = () => {
         Authorization: `Bearer ${token}`,
       },
     }).then((response) => {
-      console.log("delete response", response);
       switch (response.status) {
         case 200:
           alert("Message successfully deleted");
