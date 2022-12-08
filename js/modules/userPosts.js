@@ -4,7 +4,7 @@
 List of the user's posts
 ======================================================================================================*/
 
-export const userPosts = function (userData) {
+export const userPosts = function (userData, formatDate) {
   const profilePosts = document.querySelector("#profile-posts");
   const loaderContainer = document.querySelector(".loader-container");
   //
@@ -12,8 +12,7 @@ export const userPosts = function (userData) {
     ? (profilePosts.innerHTML = "")
     : userData.posts.forEach((post) => {
         //
-        const { body, created, id, media, owner, title } = post;
-        const formattedDate = Date(created).substring(0, 11);
+        const { body, created, id, media, owner, title, tags, updated } = post;
         //
         loaderContainer.innerHTML = "";
         profilePosts.innerHTML += `
@@ -33,7 +32,15 @@ export const userPosts = function (userData) {
         <div class="d-flex flex-column ms-2 mt-1">
           <h5 class="card-title mb-0">${owner}</h5>
           <p class="card-text">
-            <small class="text-muted">Posted ${formattedDate}</small>
+            <small class="text-muted">Posted ${formatDate(
+              new Date(created)
+            )}</small>
+            )}</small>
+            </p>
+            <p class="card-text">
+            <small class="text-muted">Updated ${formatDate(
+              new Date(updated)
+            )}</small>
           </p>
         </div>
       </div>
@@ -59,6 +66,9 @@ export const userPosts = function (userData) {
     <h6 class="card-subtitle mb-2">${title}</h6>
       <p class="card-text">
         ${body}
+      </p>      
+      <p class="card-text clr-pink">
+        ${tags}
       </p>      
     </div>
   </div>`;

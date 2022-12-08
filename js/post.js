@@ -4,9 +4,10 @@ import { singlePost } from "./modules/singlePost.js";
 import { commentsPost } from "./modules/commentsPost.js";
 import { reactionsPost } from "./modules/reactionsPost.js";
 import { deletePost } from "./api/deletePost.js";
-import { signOut } from "./components/components.js";
+import { formatDate, signOut } from "./components/components.js";
 import { getSinglePost } from "./api/getSinglePost.js";
 import { changeDocTitle } from "./components/components.js";
+import { userDropDown } from "./modules/headerProfile.js";
 
 document.querySelector("#return").addEventListener("click", () => {
   history.back();
@@ -22,7 +23,8 @@ const params = new URLSearchParams(queryString);
 const postId = params.get("id");
 //
 const singlePostUrl = `${API_BASE_URL}/api/v1/social/posts/${postId}?_author=true&_comments=true&_reactions=true`;
-const token = localStorage.getItem("token");
+const user = JSON.parse(localStorage.getItem("userLoggedIn"));
+const { token } = user;
 const fetchOptions = {
   method: "GET",
   headers: {
@@ -36,7 +38,7 @@ const updatePostUrl = `${API_BASE_URL}${POSTS_URL}${postId}`;
 
 const getHtml = function (post) {
   changeDocTitle(post.title);
-  singlePost(post);
+  singlePost(post, formatDate);
   commentsPost(post);
   reactionsPost(post);
   deletePost();
@@ -81,6 +83,13 @@ UPDATE SINGLE POST
 };
 
 getSinglePost(singlePostUrl, fetchOptions, getHtml);
+
+/*======================================================================================================
+HEADER
+======================================================================================================*/
+
+// Profile
+userDropDown();
 
 // Sign out
 signOut();

@@ -16,7 +16,12 @@ async function loginUser(url, userData) {
     if (response.ok) {
       const json = await response.json();
       const token = json.accessToken;
-      localStorage.setItem("token", token);
+      const userName = json.name;
+      const avatar = json.avatar;
+
+      const userLoggedIn = { token, userName, avatar };
+
+      localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
       location.replace("/feed.html");
     } else {
       alert("Wrong username or password");

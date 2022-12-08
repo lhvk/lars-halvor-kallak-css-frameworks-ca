@@ -4,7 +4,7 @@
 Single Post
 ======================================================================================================*/
 
-export const singlePost = (post) => {
+export const singlePost = (post, formatDate) => {
   const loaderContainer = document.querySelector(".loader-container");
   const singlePostContainer = document.querySelector("#single-post-container");
   const {
@@ -15,6 +15,7 @@ export const singlePost = (post) => {
     updated,
     media,
     title,
+    tags,
   } = post;
 
   loaderContainer.innerHTML = "";
@@ -24,7 +25,7 @@ export const singlePost = (post) => {
       class="card-header bg-white d-flex justify-content-between border-bottom border-0"
     >
       <div class="d-flex">
-        <a href="profile.html?id="${"id"}" class="text-decoration-none text-dark"
+        <a href="profile.html?id=${name}" class="text-decoration-none text-dark"
           ><img
             src="${avatar}"
             alt="user avatar"
@@ -35,10 +36,14 @@ export const singlePost = (post) => {
         <div class="d-flex flex-column ms-2 mt-1">
           <h5 class="card-title mb-0">${name}</h5>
           <p class="card-text">
-            <small class="text-muted">Posted ${created}</small>
+            <small class="text-muted">Posted ${formatDate(
+              new Date(created)
+            )}</small>
           </p>
           <p class="card-text">
-            <small class="text-muted">Updated ${updated}</small>
+            <small class="text-muted">Updated ${formatDate(
+              new Date(updated)
+            )}</small>
           </p>
         </div>
       </div>
@@ -65,6 +70,9 @@ export const singlePost = (post) => {
     <h6 class="card-subtitle mb-2">${title}</h6>
       <p class="card-text">
         ${body}
+      </p>
+      <p class="card-text clr-pink">
+        ${tags}
       </p>
     </div>
     <div class="card-footer bg-white">

@@ -1,5 +1,6 @@
 "use strict";
-import { signOut } from "./components/components.js";
+import { formatDate, signOut } from "./components/components.js";
+import { userDropDown } from "./modules/headerProfile.js";
 import { profileCard } from "./modules/profileCard.js";
 import { userFollowers } from "./modules/userFollowers.js";
 import { userFollowing } from "./modules/userFollowing.js";
@@ -14,11 +15,11 @@ const API_BASE_URL = "https://nf-api.onrender.com",
   params = new URLSearchParams(queryString),
   userId = params.get("id"),
   userUrl = `${API_BASE_URL}/api/v1/social/profiles/${userId}?_following=true&_followers=true&_posts=true`;
-
+const user = JSON.parse(localStorage.getItem("userLoggedIn"));
+const { token } = user;
 // Fetch unique user ID //
 export async function getUser(url) {
   try {
-    const token = localStorage.getItem("token");
     const fetchOptions = {
       method: "GET",
       headers: {
@@ -29,7 +30,6 @@ export async function getUser(url) {
     const response = await fetch(url, fetchOptions);
     const userData = await response.json();
 
-    console.log(token);
     // End of fetch //
 
     // Change document title //
@@ -42,7 +42,7 @@ export async function getUser(url) {
     // List of users who follow the user
     userFollowers(userData);
     // List of the users post
-    userPosts(userData);
+    userPosts(userData, formatDate);
 
     // Catch error //
   } catch (error) {
@@ -50,6 +50,13 @@ export async function getUser(url) {
   }
 }
 getUser(userUrl);
+
+/*======================================================================================================
+HEADER
+======================================================================================================*/
+
+// Profile
+userDropDown();
 
 // Sign out
 signOut();
