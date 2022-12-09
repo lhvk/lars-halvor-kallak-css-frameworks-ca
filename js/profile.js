@@ -10,11 +10,11 @@ document.querySelector("#return").addEventListener("click", () => {
   history.back();
 });
 
-const API_BASE_URL = "https://nf-api.onrender.com",
-  queryString = document.location.search,
-  params = new URLSearchParams(queryString),
-  userId = params.get("id"),
-  userUrl = `${API_BASE_URL}/api/v1/social/profiles/${userId}?_following=true&_followers=true&_posts=true`;
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const userId = params.get("id");
+const API_BASE_URL = `https://nf-api.onrender.com/api/v1/social/profiles/${userId}`;
+const userUrl = `${API_BASE_URL}?_following=true&_followers=true&_posts=true`;
 const user = JSON.parse(localStorage.getItem("userLoggedIn"));
 const { token } = user;
 // Fetch unique user ID //
