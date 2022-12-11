@@ -76,9 +76,16 @@ UPDATE SINGLE POST
         Authorization: `Bearer ${token}`,
       },
     };
-    fetch(updatePostUrl, optionsPut)
-      .then((response) => response.json())
-      .then((json) => console.log("json update", json));
+    fetch(updatePostUrl, optionsPut).then((response) => {
+      if (response.ok) {
+        response.json().then(() => {
+          alert("post updated!");
+          location.reload();
+        });
+      } else {
+        alert("Something went wrong: Post not updated");
+      }
+    });
   });
 };
 

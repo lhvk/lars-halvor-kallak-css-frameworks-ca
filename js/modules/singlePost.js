@@ -39,9 +39,8 @@ export const singlePost = (post, formatDate) => {
             <small class="text-muted">Posted ${formatDate(
               new Date(created)
             )}</small>
-          </p>
-          <p class="card-text">
-            <small class="text-muted">Updated ${formatDate(
+
+            <small class="text-muted ms-auto">Updated ${formatDate(
               new Date(updated)
             )}</small>
           </p>

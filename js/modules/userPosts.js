@@ -5,6 +5,7 @@ List of the user's posts
 ======================================================================================================*/
 
 export const userPosts = function (userData, formatDate) {
+  const { avatar } = userData;
   const profilePosts = document.querySelector("#profile-posts");
   const loaderContainer = document.querySelector(".loader-container");
   //
@@ -24,7 +25,7 @@ export const userPosts = function (userData, formatDate) {
       <div class="d-flex">
         <a href="profile.html?id=${owner}" class="text-decoration-none text-dark"
           ><img
-            src="${"avatar"}" 
+            src="${avatar}" 
             alt="user avatar"
             class="post-avatar rounded-circle"
             onerror="this.onerror=null; this.src='https://img.freepik.com/free-vector/mysterious-mafia-man-wearing-hat_52683-34829.jpg?w=1380&t=st=1669211874~exp=1669212474~hmac=731dee4b6e9b61f93cf5e9547959b08ff3f5fb379e6996422a80d8e27ccaa2b4'"
@@ -35,7 +36,6 @@ export const userPosts = function (userData, formatDate) {
           <p class="card-text">
             <small class="text-muted">Posted ${formatDate(
               new Date(created)
-            )}</small>
             )}</small>
             </p>
             <p class="card-text">
