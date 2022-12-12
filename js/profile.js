@@ -1,5 +1,9 @@
 "use strict";
-import { formatDate, signOut } from "./components/components.js";
+import {
+  changeDocTitle,
+  formatDate,
+  signOut,
+} from "./components/components.js";
 import { userDropDown } from "./modules/headerProfile.js";
 import { profileCard } from "./modules/profileCard.js";
 import { userFollowers } from "./modules/userFollowers.js";
@@ -33,7 +37,7 @@ export async function getUser(url) {
     // End of fetch //
 
     // Change document title //
-    document.title = `Social Media Page | ${userData.name}`;
+    changeDocTitle(`${userData.name}`);
 
     // User Profile
     profileCard(userData);

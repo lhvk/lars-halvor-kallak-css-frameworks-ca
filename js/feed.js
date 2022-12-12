@@ -38,7 +38,7 @@ document.querySelector(".share-button").addEventListener("click", async (e) => {
 /*======================================================================================================
 GET ALL POSTS
 ======================================================================================================*/
-let limit = 30;
+let limit = 50;
 let offset = 0;
 const LIMIT_OFFSET = `&limit=${limit}&offset=${offset}`;
 const ALL_POSTS = "?&_author=true&_comments=true&_reactions=true";

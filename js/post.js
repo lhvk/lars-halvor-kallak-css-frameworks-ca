@@ -8,6 +8,7 @@ import { formatDate, signOut } from "./components/components.js";
 import { getSinglePost } from "./api/getSinglePost.js";
 import { changeDocTitle } from "./components/components.js";
 import { userDropDown } from "./modules/headerProfile.js";
+import { editPost } from "./api/editPost.js";
 
 document.querySelector("#return").addEventListener("click", () => {
   history.back();
@@ -17,24 +18,22 @@ document.querySelector("#return").addEventListener("click", () => {
 GET SINGLE POST
 ======================================================================================================*/
 
-const API_BASE_URL = "https://nf-api.onrender.com";
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const postId = params.get("id");
+const postUrl = `https://nf-api.onrender.com/api/v1/social/posts/${postId}`;
 //
-const singlePostUrl = `${API_BASE_URL}/api/v1/social/posts/${postId}?_author=true&_comments=true&_reactions=true`;
+const singlePostUrl = `${postUrl}?_author=true&_comments=true&_reactions=true`;
 const user = JSON.parse(localStorage.getItem("userLoggedIn"));
 const { token } = user;
-const fetchOptions = {
+//
+const singlePostOptions = {
   method: "GET",
   headers: {
     "Content-type": "application/json",
     Authorization: `Bearer ${token}`,
   },
 };
-
-const POSTS_URL = "/api/v1/social/posts/";
-const updatePostUrl = `${API_BASE_URL}${POSTS_URL}${postId}`;
 
 const getHtml = function (post) {
   changeDocTitle(post.title);
@@ -68,7 +67,7 @@ UPDATE SINGLE POST
       media: editMedia.value,
     };
 
-    const optionsPut = {
+    const editOptions = {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -76,20 +75,28 @@ UPDATE SINGLE POST
         Authorization: `Bearer ${token}`,
       },
     };
-    fetch(updatePostUrl, optionsPut).then((response) => {
-      if (response.ok) {
-        response.json().then(() => {
-          alert("post updated!");
-          location.reload();
-        });
-      } else {
-        alert("Something went wrong: Post not updated");
-      }
-    });
+    editPost(postUrl, editOptions);
+  });
+
+  /*======================================================================================================
+DELETE POST 
+======================================================================================================*/
+
+  document.querySelector("#delete-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const deleteOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    deletePost(postUrl, deleteOptions);
   });
 };
 
-getSinglePost(singlePostUrl, fetchOptions, getHtml);
+getSinglePost(singlePostUrl, singlePostOptions, getHtml);
 
 /*======================================================================================================
 HEADER
