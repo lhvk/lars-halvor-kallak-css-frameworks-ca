@@ -1,13 +1,17 @@
 "use strict";
 
 /*======================================================================================================
-Delete Post
+Edit Post
 ======================================================================================================*/
 
-export const deletePost = (url, options) => {
+export const editPost = (url, options) =>
   fetch(url, options).then((response) => {
     if (response.ok) {
-      alert("Message successfully deleted"), (location.href = "feed.html");
+      response.json().then(() => {
+        alert("post updated!");
+        location.reload();
+      });
+    } else {
+      alert("Something went wrong: Post not updated");
     }
   });
-};

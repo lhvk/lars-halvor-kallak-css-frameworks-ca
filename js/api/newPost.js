@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * @param {addNewPost} url
- * @param {addNewPost} newPostData
+ * @param {addNewPost} url for the fetch request
+ * @param {addNewPost} newPostData data for the new post from the form input
  */
 
 /*======================================================================================================

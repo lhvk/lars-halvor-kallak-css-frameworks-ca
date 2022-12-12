@@ -2,9 +2,9 @@
 
 /**
  *
- * @param {*} url
- * @param {*} fetchOptions
- * @param {*} getHtml
+ * @param {*} url url for the fetch
+ * @param {*} fetchOptions options for the fetch
+ * @param {*} getHtml html for the UI of the fetch
  */
 
 /*======================================================================================================

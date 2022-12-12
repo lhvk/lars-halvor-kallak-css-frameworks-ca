@@ -9,7 +9,7 @@ const headerUserDropDown = document.querySelector(".header-user-dropdown");
 export const userDropDown = () => {
   //
   const user = JSON.parse(localStorage.getItem("userLoggedIn"));
-  const { avatar, userName, token } = user;
+  const { avatar, userName } = user;
 
   headerUserDropDown.innerHTML = `
     <a

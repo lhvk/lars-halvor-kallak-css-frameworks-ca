@@ -7,6 +7,8 @@ Single Post
 export const singlePost = (post, formatDate) => {
   const loaderContainer = document.querySelector(".loader-container");
   const singlePostContainer = document.querySelector("#single-post-container");
+  const user = JSON.parse(localStorage.getItem("userLoggedIn"));
+  const { userName } = user;
   const {
     author: { name, avatar },
     _count: { comments, reactions },
@@ -40,7 +42,7 @@ export const singlePost = (post, formatDate) => {
               new Date(created)
             )}</small>
 
-            <small class="text-muted ms-auto">Updated ${formatDate(
+            <small class="text-muted">Updated ${formatDate(
               new Date(updated)
             )}</small>
           </p>
@@ -165,7 +167,7 @@ export const singlePost = (post, formatDate) => {
     <!-- edit post form end -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="reset" value="reset" class="btn" data-bs-dismiss="modal">Cancel</button>
         <button type="submit" form="edit-post-form" class="btn edit-submit-btn">Update</button>
       </div>
     </div>
@@ -173,4 +175,15 @@ export const singlePost = (post, formatDate) => {
 </div>
 <!-- edit post modal end -->
   `;
+
+  // Make sure to not give the user the impression that it's
+  // possible to delete or edit other people's posts
+  if (userName !== name) {
+    document.querySelector(".bi-three-dots").style.display = "none";
+  }
+
+  // const cancelBtn = document.querySelector(".cancel-btn");
+  // cancelBtn.addEventListener("click", (e) => {
+
+  // });
 };

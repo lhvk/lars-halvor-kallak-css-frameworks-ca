@@ -5,7 +5,8 @@ import { allPosts } from "../modules/allPosts.js";
 
 /**
  *
- * @param {getAllPosts} url
+ * @param {getAllPosts} url url for the fetch
+ * @param {getAllPosts} fetchOptions options for the fetch
  */
 /*======================================================================================================
 Get all posts
@@ -37,9 +38,11 @@ export const getAllPosts = async function (url, fetchOptions) {
       const { id, title, body, tags } = post;
       listContainer.innerHTML += `
       <li class="list-group-item"><a class="text-decoration-none text-body" href="#${id}">
+      <div>
       <span class="fw-semibold">${title}</span>
       ${body}
-      <span class="clr-pink">${tags}</span>
+      <span class="clr-pink text-break">${tags}</span>
+      </div>
       </a>
       </li>`;
     });
@@ -50,15 +53,15 @@ export const getAllPosts = async function (url, fetchOptions) {
       const listItems = document.querySelectorAll(".list-group-item");
 
       for (let i = 0; i < listItems.length; i++) {
+        const items = listItems[i].getElementsByTagName("a")[0];
+        const textValue = items.textContent || items.innerText;
         // clear search when clicking on a result
         listItems[i].addEventListener("click", () => {
           listContainer.style.display = "none";
           searchInput.value = "";
         });
         // search
-        const txtValue = listItems[i].innerText;
-        //
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
           listItems[i].style.display = "";
           listContainer.style.display = "none";
         } else {
@@ -67,7 +70,6 @@ export const getAllPosts = async function (url, fetchOptions) {
         }
       }
     });
-
     //
   } catch (error) {
     alert(error);
