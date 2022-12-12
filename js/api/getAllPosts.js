@@ -20,35 +20,55 @@ export const getAllPosts = async function (url, fetchOptions) {
     // html for all posts in the feed
     allPosts(json, formatDate);
 
-    //
+    // SEARCH //
     const listContainer = document.querySelector(".list-group");
-    //
-    json.forEach((post) => {
-      listContainer.innerHTML += `
-      <li class="list-group-item">${post.title}</li>`;
-    });
     const searchInput = document.querySelector("#search");
-    //
-    searchInput.addEventListener("input", (e) => {
-      console.log("event", e);
+    listContainer.style.display = "none";
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && listContainer.style.display === "block") {
+        listContainer.style.display = "none";
+        searchInput.value = "";
+      }
+    });
+
+    // create list of posts to search through
+    json.forEach((post) => {
+      const { id, title, body, tags } = post;
+      listContainer.innerHTML += `
+      <li class="list-group-item"><a class="text-decoration-none text-body" href="#${id}">
+      <span class="fw-semibold">${title}</span>
+      ${body}
+      <span class="clr-pink">${tags}</span>
+      </a>
+      </li>`;
+    });
+
+    // searchfield input function
+    searchInput.addEventListener("input", () => {
       const filter = searchInput.value.toUpperCase();
       const listItems = document.querySelectorAll(".list-group-item");
 
-      // Loop through all list items, and hide those who don't match the search query
       for (let i = 0; i < listItems.length; i++) {
-        //
-        let txtValue = listItems[i].innerText;
-        //
-        console.log(txtValue);
-
+        // clear search when clicking on a result
+        listItems[i].addEventListener("click", () => {
+          listContainer.style.display = "none";
+          searchInput.value = "";
+        });
+        // search
+        const txtValue = listItems[i].innerText;
         //
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
           listItems[i].style.display = "";
+          listContainer.style.display = "none";
         } else {
           listItems[i].style.display = "none";
+          listContainer.style.display = "block";
         }
       }
     });
+
+    //
   } catch (error) {
     alert(error);
   }

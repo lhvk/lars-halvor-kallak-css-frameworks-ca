@@ -20,7 +20,7 @@ export const allPosts = function (json, formatDate) {
       updated,
     } = post;
 
-    homeFeed.innerHTML += `<div class="card mb-3 shadow">
+    homeFeed.innerHTML += `<div class="card mb-3 shadow" id="${id}">
       <div
         class="card-header bg-white d-flex justify-content-between border-bottom border-0"
       >
