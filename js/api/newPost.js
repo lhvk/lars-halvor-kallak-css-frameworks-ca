@@ -2,7 +2,7 @@
 
 /**
  * @param {string} url for the fetch request
- * @param {addNewPost} newPostData data for the new post from the form input
+ * @param {Object} newPostData data for the new post from the form input
  */
 
 /*======================================================================================================
