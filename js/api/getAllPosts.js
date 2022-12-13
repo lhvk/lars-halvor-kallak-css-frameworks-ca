@@ -34,10 +34,17 @@ export const getAllPosts = async function (url, fetchOptions) {
 
     // create list of posts to search through
     json.forEach((post) => {
-      const { id, title, body, tags } = post;
+      const {
+        author: { name },
+        id,
+        title,
+        body,
+        tags,
+      } = post;
       listContainer.innerHTML += `
       <li class="list-group-item"><a class="text-decoration-none text-body" href="#${id}">
       <div>
+      <span class="fw-bold">${name}</span>
       <span class="fw-semibold">${title}</span>
       ${body}
       <span class="clr-pink text-break">${tags}</span>

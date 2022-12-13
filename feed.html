@@ -20,8 +20,9 @@
               id="search"
               type="text"
               class="form-control"
-              placeholder="Search for title, body or tag"
-              aria-label="Search" />
+              placeholder="Search for user, title, body or tag"
+              aria-label="Search"
+            />
             <ul class="list-group w-100"></ul>
           </form>
         </div>
@@ -49,30 +50,35 @@
                 class="form-control bg-secondary bg-opacity-10"
                 placeholder="Title of your post"
                 aria-label="post title"
-                required />
+                required
+              />
               <!-- Text area -->
               <label for="new-post-text" class="form-label"></label>
               <textarea
                 placeholder="Share something.."
                 class="form-control bg-secondary bg-opacity-10"
                 id="new-post-text"
-                rows="2"></textarea>
+                rows="2"
+              ></textarea>
               <!-- Media -->
               <label for="new-post-media" class="form-label"></label>
               <div class="input-group">
                 <span
-                  class="input-group-text bg-blue text-white bi bi-upload"></span>
+                  class="input-group-text bg-blue text-white bi bi-upload"
+                ></span>
                 <input
                   placeholder="URL for media content"
                   class="form-control bg-secondary bg-opacity-10"
-                  id="new-post-media" />
+                  id="new-post-media"
+                />
               </div>
               <!-- Tags -->
               <label for="new-post-tags" class="form-label"></label>
               <input
                 placeholder="Tags"
                 class="form-control bg-secondary bg-opacity-10 mb-4"
-                id="new-post-tags" />
+                id="new-post-tags"
+              />
               <div class="d-flex justify-content-end">
                 <button class="btn share-button" type="submit">Share</button>
               </div>
@@ -95,7 +101,8 @@
             <button
               id="load-more"
               class="btn rounded-pill ps-4 pe-4 shadow mt-4 mb-4"
-              type="button">
+              type="button"
+            >
               Load more ..
             </button>
           </div>
@@ -111,7 +118,8 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/js/feed.js"></script>
   </body>
 </html>
