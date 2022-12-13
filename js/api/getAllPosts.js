@@ -15,7 +15,6 @@ Get all posts
 export const getAllPosts = async function (url, fetchOptions) {
   try {
     //
-    fetchOptions;
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
     // html for all posts in the feed
