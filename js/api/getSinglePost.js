@@ -4,7 +4,7 @@
  *
  * @param {string} url url for the fetch
  * @param {Object} fetchOptions options for the fetch
- * @param {*} getHtml html for the UI of the fetch
+ * @param {function} getHtml html for the UI of the fetch
  */
 
 /*======================================================================================================
