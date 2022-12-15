@@ -11,7 +11,7 @@ export const changeDocTitle = (title) => {
 // Sign out eventhandler
 export const signOut = () => {
   document.querySelector("#signOut").addEventListener("click", () => {
-    localStorage.clear();
+    localStorage.removeItem("userLoggedIn");
     location.replace("/index.html");
   });
 };
