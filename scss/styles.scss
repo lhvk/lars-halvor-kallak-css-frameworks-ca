@@ -24,10 +24,44 @@ body {
   background-color: #fff;
 }
 
-.form-check-input:checked {
+.form-check-input:checked,
+.bg-pink {
   background-color: $pink;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.clr-pink {
+  color: $pink;
 }
 
 .fs-2 {
   font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner-grow {
+  width: 2rem;
+  height: 2rem;
+  color: $blue;
+}
+
+.banner-image-container {
+  margin-bottom: 100px;
+}
+
+.flex-col-gap-1 {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group {
+  z-index: 1;
+  position: absolute;
 }

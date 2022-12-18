@@ -4,18 +4,22 @@
 NAVIGATION
 ======================================================== */
 
-.navbar,
-.offcanvas {
+header,
+.dropdown-menu {
   background-color: $blue;
   & .navbar-brand,
-  a,
-  .offcanvas-title {
+  .navbar-brand:focus,
+  a {
     color: #fff;
+  }
+  & :hover {
+    color: $pink;
   }
 }
 
-.nav-link:hover {
-  color: $pink;
+.dropdown-item:hover {
+  color: #fff;
+  background-color: $pink;
 }
 
 /* ========================================================

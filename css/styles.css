@@ -10781,21 +10781,26 @@ VARIABLES
 ======================================================== */ /* ========================================================
 NAVIGATION
 ======================================================== */
-.navbar,
-.offcanvas {
+header,
+.dropdown-menu {
   background-color: #1e3163;
 }
-.navbar .navbar-brand,
-.navbar a,
-.navbar .offcanvas-title,
-.offcanvas .navbar-brand,
-.offcanvas a,
-.offcanvas .offcanvas-title {
+header .navbar-brand,
+header .navbar-brand:focus,
+header a,
+.dropdown-menu .navbar-brand,
+.dropdown-menu .navbar-brand:focus,
+.dropdown-menu a {
   color: #fff;
 }
-
-.nav-link:hover {
+header :hover,
+.dropdown-menu :hover {
   color: #f037a5;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: #f037a5;
 }
 
 /* ========================================================
@@ -10818,6 +10823,11 @@ VARIABLES
 /* ========================================================
 CARDS
 ======================================================== */
+.image-wrapper {
+  position: relative;
+  margin-bottom: -100px;
+}
+
 .profile-avatar {
   width: 200px;
   height: 200px;
@@ -10835,6 +10845,12 @@ CARDS
 .post-avatar-sm {
   width: 30px;
   height: 30px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.modal-avatar {
+  width: 100%;
   object-fit: cover;
   object-position: top;
 }
@@ -10870,12 +10886,46 @@ body {
   background-color: #fff;
 }
 
-.form-check-input:checked {
+.form-check-input:checked,
+.bg-pink {
   background-color: #f037a5;
+}
+
+.bg-blue {
+  background-color: #1e3163;
+}
+
+.clr-pink {
+  color: #f037a5;
 }
 
 .fs-2 {
   font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner-grow {
+  width: 2rem;
+  height: 2rem;
+  color: #1e3163;
+}
+
+.banner-image-container {
+  margin-bottom: 100px;
+}
+
+.flex-col-gap-1 {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-group {
+  z-index: 1;
+  position: absolute;
 }
 
 /*# sourceMappingURL=styles.css.map */
