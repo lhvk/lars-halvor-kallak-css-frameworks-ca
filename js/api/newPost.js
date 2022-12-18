@@ -23,6 +23,7 @@ export async function addNewPost(url, newPostData) {
       body: JSON.stringify(newPostData),
     };
     const response = await fetch(url, fetchOptions);
+
     if (response.ok) {
       location.reload();
     } else {

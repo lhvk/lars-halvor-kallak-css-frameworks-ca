@@ -41,6 +41,3 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 
   await loginUser(loginUrl, userLogin);
 });
-
-// LarKal69841@stud.noroff.no
-// abc12345

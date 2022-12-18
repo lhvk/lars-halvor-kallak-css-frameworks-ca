@@ -49,7 +49,7 @@ UPDATE SINGLE POST
   const { body, media, title, tags } = post;
   const editTitle = document.querySelector("#edit-post-title");
   const editBody = document.querySelector("#edit-post-text");
-  const editTags = [document.querySelector("#edit-post-tags")];
+  const editTags = document.querySelector("#edit-post-tags");
   const editMedia = document.querySelector("#edit-post-media");
 
   editTitle.value = title;
@@ -63,7 +63,7 @@ UPDATE SINGLE POST
     const data = {
       title: editTitle.value,
       body: editBody.value,
-      tags: editTags.value,
+      tags: [editTags.value],
       media: editMedia.value,
     };
 

@@ -7,7 +7,6 @@ export const allPosts = function (json, formatDate) {
   for (let i = 0; i < json.length; i++) {
     const homeFeed = document.querySelector("#home-feed");
     const post = json[i];
-
     const {
       author: { name, avatar },
       _count: { reactions, comments },

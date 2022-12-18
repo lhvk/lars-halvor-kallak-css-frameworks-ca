@@ -12,7 +12,6 @@ export const userPosts = function (userData, formatDate) {
   userData.posts.length === 0
     ? (profilePosts.innerHTML = "")
     : userData.posts.forEach((post) => {
-        console.log(post);
         //
         const { body, created, id, media, owner, title, tags, updated } = post;
         //
