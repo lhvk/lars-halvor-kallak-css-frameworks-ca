@@ -17,6 +17,7 @@ export const getAllPosts = async function (url, fetchOptions) {
     //
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
+
     // html for all posts in the feed
     allPosts(json, formatDate);
 
@@ -76,7 +77,6 @@ export const getAllPosts = async function (url, fetchOptions) {
         }
       }
     });
-    //
   } catch (error) {
     alert(error);
   }

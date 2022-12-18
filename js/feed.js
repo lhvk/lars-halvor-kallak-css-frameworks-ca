@@ -38,11 +38,11 @@ document.querySelector(".share-button").addEventListener("click", async (e) => {
 /*======================================================================================================
 GET ALL POSTS
 ======================================================================================================*/
-let limit = 50;
+let limit = 10;
 let offset = 0;
-const LIMIT_OFFSET = `&limit=${limit}&offset=${offset}`;
+
 const ALL_POSTS = "?&_author=true&_comments=true&_reactions=true";
-const postsUrl = `${API_BASE_URL}${POSTS}${ALL_POSTS}${LIMIT_OFFSET}
+const postsUrl = `${API_BASE_URL}${POSTS}${ALL_POSTS}&offset=${offset}&limit=${limit}
 `;
 
 getAllPosts(postsUrl, fetchAllPosts);
@@ -53,7 +53,11 @@ SHOW MORE RESULTS
 
 // Show more results button
 document.querySelector("#load-more").addEventListener("click", () => {
-  getAllPosts(postsUrl, fetchAllPosts);
+  offset = offset + 10;
+  const loadMoreUrl = `${API_BASE_URL}${POSTS}${ALL_POSTS}&offset=${offset}&limit=${limit}
+`;
+
+  getAllPosts(loadMoreUrl, fetchAllPosts);
 });
 
 /*======================================================================================================
