@@ -28,7 +28,7 @@ document.querySelector(".share-button").addEventListener("click", async (e) => {
   const newPostData = {
     title: document.querySelector("#new-post-title").value,
     body: document.querySelector("#new-post-text").value,
-    tags: [document.querySelector("#new-post-tags")].value,
+    tags: [document.querySelector("#new-post-tags").value],
     media: document.querySelector("#new-post-media").value,
   };
 

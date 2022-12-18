@@ -61,7 +61,7 @@ export const singlePost = (post, formatDate) => {
         </a>
         <ul class="dropdown-menu">
           <button class="dropdown-item text-white" id="edit-btn" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</button>
-          <button class="dropdown-item text-white" id="delete-btn" type"submit">Delete</button>
+          <button class="dropdown-item text-white" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
         </ul>
       </div>
     </div>
@@ -174,6 +174,25 @@ export const singlePost = (post, formatDate) => {
   </div>
 </div>
 <!-- edit post modal end -->
+<!-- delete post modal start -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Warning!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this post?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, take me away from here!</button>
+        <button id="delete-btn" type"submit" class="btn">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- delete post modal start -->
   `;
 
   // Make sure to not give the user the impression that it's
