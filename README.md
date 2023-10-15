@@ -1,6 +1,6 @@
 # CSS Frameworks: Course Assignment
 
-![landing page image](assets/social-site-landingpage.png)
+![landing page image](images/social-site-landingpage.png)
 
 ## Description
 This is a simple project created for a course assignment on CSS Frameworks at Noroff School of Technology and Media. It includes the necessary setup to work with SASS and Bootstrap
