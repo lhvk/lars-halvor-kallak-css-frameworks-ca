@@ -1,5 +1,7 @@
 # CSS Frameworks: Course Assignment
 
+![landing page image](assets/social-site-landingpage.png)
+
 ## Description
 This is a simple project created for a course assignment on CSS Frameworks at Noroff School of Technology and Media. It includes the necessary setup to work with SASS and Bootstrap
 
@@ -37,6 +39,7 @@ This will watch for changes in your SASS files and update the CSS, and it will a
 ## Dependencies
 This project uses the following dependencies:
 * **Bootstrap:** Version 5.2.3
+* **Bootstrap Icons** Version 1.9.1
 
 ## Development Dependencies
 The development of this project relies on the following dev dependencies:
